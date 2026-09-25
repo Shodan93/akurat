@@ -80,7 +80,7 @@
           <h2 style="{{ plan90H2Style }}">Einschätzung, wie ich Ihr Wachstum in den ersten 90 Tagen angehen würde:</h2>
         </div>
       </div>
-      <p style="{{ plan90LeadStyle }}">Als Allrounderin decke ich SEO, Google- und Meta-Ads, Website, Content und Tracking selbst ab.<br>Mit KI setze ich das schnell und effizient um.</p>
+      <p style="{{ plan90LeadStyle }}">Als Allrounderin decke ich SEO, Google- und Meta-Ads, Website, Content und Tracking selbst ab.<br>Mit KI setze ich das schnell und effizient um.<br>Das Budget habe ich dabei immer im Blick und setze es dort ein, wo es den größten ROI bringt.</p>
       <div style="{{ plan90GridStyle }}">
         <div style="{{ plan90CardStyle }}">
           <span style="{{ plan90LabelStyle }}">SCHRITT 1</span>
@@ -90,13 +90,17 @@
         <div style="{{ plan90CardStyle }}">
           <span style="{{ plan90LabelStyle }}">SCHRITT 2</span>
           <h3 style="{{ plan90TitleStyle }}">Umsetzen</h3>
-          <p style="{{ plan90TextStyle }}">Anschließend setze ich die Maßnahmen mit dem größten Hebel um, von SEO und Standortseiten über lokale Google- und Meta-Kampagnen bis zur Immobilienbewertung. Mit meiner Erfahrung und KI als Unterstützung erledige ich den Großteil selbst. Externe Dienstleister binde ich nur dort ein, wo sie wirklich einen Mehrwert bringen.</p>
+          <p style="{{ plan90TextStyle }}">Anschließend setze ich die Maßnahmen mit dem größten Hebel um, von SEO und Standortseiten über lokale Google- und Meta-Kampagnen bis zur Immobilienbewertung. Mit meiner Erfahrung und KI als Unterstützung erledige ich den Großteil selbst.</p>
         </div>
         <div style="{{ plan90CardStyle }}">
           <span style="{{ plan90LabelStyle }}">SCHRITT 3</span>
           <h3 style="{{ plan90TitleStyle }}">Messen &amp; Optimieren</h3>
-          <p style="{{ plan90TextStyle }}">Ich arbeite zahlen- und datengetrieben: Jede Maßnahme wird gemessen, optimiert und dort ausgebaut, wo sie nachweislich Anfragen und Mandate bringt. Wiederkehrende Aufgaben automatisiere ich. So entsteht ein Marketing, das messbar wirkt und im Tagesgeschäft verlässlich läuft.</p>
+          <p style="{{ plan90TextStyle }}">Ich arbeite zahlen- und datengetrieben: Jede Maßnahme wird gemessen, optimiert und dort ausgebaut, wo sie nachweislich Anfragen und Mandate bringt. Im Performance Marketing liegt mein Schwerpunkt auf messbaren Conversions. Wiederkehrende Aufgaben automatisiere ich konsequent, so bleibt der gesamte Workload auch gut zu stemmen.</p>
         </div>
+      </div>
+      <div style="{{ plan90GoalStyle }}">
+        <span style="{{ plan90GoalLabelStyle }}">ZIELBILD</span>
+        <p style="{{ plan90GoalTextStyle }}">Ein messbar erfolgreiches Marketing, ein optimierter Online-Auftritt und darauf aufbauend optimierte Geschäftsprozesse.</p>
       </div>
       <p style="{{ plan90NoteStyle }}">Darüber hinaus übernehme ich bei Bedarf gern weitere Themen, etwa die Weiterentwicklung und Anbindung von Tools und Systemen wie CRM, die Einführung neuer digitaler Angebote, die Steuerung von Dienstleistern und die Leitung von Projekten.</p>
     </div>
@@ -370,6 +374,23 @@ class Component extends DCLogic {
         fontSize: m ? 16 : "var(--fs-hero-lead)", lineHeight: 1.5,
         color: bodyText, margin: m ? "-8px 0 -8px 0" : "-16px 0 -8px 0", maxWidth: 1200,
         borderLeft: "3px solid " + accent, paddingLeft: m ? 14 : 20,
+      },
+      plan90GoalStyle: {
+        display: "flex", flexDirection: m ? "column" : "row",
+        alignItems: m ? "flex-start" : "center", gap: m ? 8 : 28,
+        width: "100%", boxSizing: "border-box",
+        padding: m ? "18px 20px" : "22px 28px",
+        borderRadius: 12, backgroundColor: paperA(0.72),
+        boxShadow: "inset 0 0 0 1px " + accentLine,
+      },
+      plan90GoalLabelStyle: {
+        fontFamily: mono, fontWeight: 400, fontSize: "var(--fs-label)",
+        letterSpacing: lsWide, lineHeight: 1.2, color: accentText, margin: 0, flexShrink: 0,
+      },
+      plan90GoalTextStyle: {
+        fontFamily: archivo, fontWeight: 500,
+        fontSize: m ? 16 : "var(--fs-hero-lead)", lineHeight: 1.45,
+        color: bodyText, margin: 0,
       },
       plan90NoteStyle: {
         fontFamily: archivo, fontWeight: 400,
