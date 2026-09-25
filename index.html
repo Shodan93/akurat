@@ -181,7 +181,7 @@
           <span style="{{ footerLabelStyle }}">Konzept, Inhalt &amp; Design</span>
           <span style="{{ footerValueStyle }}">Svenja Mumelter · Figma</span>
         </div>
-        <div style="{{ footerPairStyle }}">
+        <div style="{{ footerPairRightStyle }}">
           <span style="{{ footerLabelStyle }}">Entwicklung</span>
           <span style="{{ footerValueStyle }}">Claude Code · KI-gestützter Entwicklungsworkflow</span>
         </div>
@@ -638,13 +638,14 @@ class Component extends DCLogic {
       },
       footerMetaStyle: {
         display: "flex", flexDirection: m ? "column" : "row", gap: m ? 12 : 48,
-        width: "100%", flexShrink: 0,
+        justifyContent: "space-between", width: "100%", flexShrink: 0,
       },
       footerNoteStyle: {
         fontFamily: archivo, fontWeight: 400,
         fontSize: m ? 12 : "clamp(11.5px, calc((100vw - 150px) / 68), var(--fs-caption))", lineHeight: 1.5,
         color: muted, margin: 0, whiteSpace: "normal",
       },
+      footerPairRightStyle: { display: "flex", flexDirection: "column", gap: m ? 2 : 4, alignItems: m ? "flex-start" : "flex-end", textAlign: m ? "left" : "right" },
       footerPairStyle: { display: "flex", flexDirection: "column", gap: m ? 2 : 4 },
       footerLabelStyle: { fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-caption)", color: muted, margin: 0 },
       footerValueStyle: { fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-caption)", letterSpacing: ls, color: bodyText, margin: 0 },
