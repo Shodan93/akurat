@@ -539,22 +539,19 @@ class Component extends DCLogic {
         margin: 0,
       },
 
-      contentRowStyle: {
-        display: "flex",
-        flexDirection: m ? "column" : "row",
-        gap: m ? 28 : 24,
-        alignItems: m ? "flex-start" : "stretch",
-        width: "100%",
+      contentRowStyle: m ? {
+        display: "flex", flexDirection: "column", gap: 28,
+        alignItems: "flex-start", width: "100%",
+      } : {
+        display: "grid", gridTemplateColumns: "424px 1fr",
+        columnGap: 24, rowGap: 24, alignItems: "stretch", width: "100%",
       },
-      leftColStyle: {
+      leftColStyle: m ? {
         display: "flex", flexDirection: "column",
-        gap: 24,
-        justifyContent: m ? "flex-start" : "space-between",
-        alignItems: "flex-start",
-        width: m ? "100%" : 424,
-        flexShrink: 0,
-      },
+        gap: 24, alignItems: "flex-start", width: "100%",
+      } : { display: "contents" },
       bulletsStyle: {
+        gridColumn: 1, gridRow: 1,
         display: "flex", flexDirection: "column",
         gap: m ? 16 : 18,
         alignItems: "flex-start",
@@ -569,6 +566,7 @@ class Component extends DCLogic {
         lineHeight: 1.6, color: bodyText, flexGrow: 1, margin: 0,
       },
       qrCardStyle: {
+        gridColumn: 1, gridRow: 2, boxSizing: "border-box",
         display: "flex", flexDirection: "row", gap: 16, alignItems: "center",
         borderRadius: 12,
         boxShadow: "inset 0 0 0 1px " + accentLine,
@@ -581,12 +579,12 @@ class Component extends DCLogic {
         letterSpacing: lsWide, color: accentText, whiteSpace: "nowrap", margin: 0,
       },
 
-      rightColStyle: {
+      rightColStyle: m ? {
         display: "flex", flexDirection: "column", gap: 16,
-        justifyContent: m ? "flex-start" : "space-between",
-        alignItems: "flex-start", width: "100%", flexGrow: 1,
-      },
+        alignItems: "flex-start", width: "100%",
+      } : { display: "contents" },
       videoCardStyle: {
+        gridColumn: 2, gridRow: 1, boxSizing: "border-box",
         position: "relative",
         width: "100%",
         height: m ? 195 : 477,
@@ -616,12 +614,12 @@ class Component extends DCLogic {
         fontFamily: inter, fontWeight: 400, fontSize: "var(--fs-caption)",
         color: muted, textAlign: "center", margin: 0,
       },
-      buttonRowStyle: { width: "100%" },
+      buttonRowStyle: { gridColumn: 2, gridRow: 2, display: "flex", width: "100%" },
       externalLinkCardStyle: {
         borderRadius: 12,
         boxShadow: "inset 0 0 0 1px " + accentLine,
-        padding: m ? "16px 18px" : "16px 20px",
-        display: "flex", flexDirection: "column", gap: 8, width: "100%",
+        padding: m ? "16px 18px" : "16px 20px", boxSizing: "border-box",
+        display: "flex", flexDirection: "column", justifyContent: "center", gap: 8, width: "100%",
       },
       linkLabelStyle: {
         fontFamily: mono, fontWeight: 400, fontSize: "var(--fs-label)",
