@@ -67,7 +67,10 @@
     </div>
 
     <div style="{{ plan90Style }}" data-section="plan90">
-      <p style="{{ plan90IntroStyle }}">Kurze Einschätzung, wie Ihr Wachstum in den ersten 90 Tagen angehen würde:</p>
+      <div style="{{ plan90HeadStyle }}">
+        <img src="assets/svenja-portrait.jpg" alt="Svenja Mumelter" width="120" height="120" style="{{ plan90PortraitStyle }}" />
+        <p style="{{ plan90IntroStyle }}">Kurze Einschätzung, wie Ihr Wachstum in den ersten 90 Tagen angehen würde:</p>
+      </div>
       <div style="{{ plan90GridStyle }}">
         <div style="{{ plan90CardStyle }}">
           <span style="{{ plan90LabelStyle }}">TAG 1 BIS 30</span>
@@ -323,13 +326,22 @@ class Component extends DCLogic {
       plan90Style: {
         position: "relative", zIndex: 1,
         backgroundColor: m ? paper : "transparent",
-        display: "flex", flexDirection: "column", gap: m ? 20 : 24,
-        padding: m ? "8px 24px 8px 24px" : "0 72px 8px 72px",
+        display: "flex", flexDirection: "column", gap: m ? 24 : 32,
+        padding: m ? "16px 24px 8px 24px" : "40px 72px 8px 72px",
         alignItems: "flex-start",
+      },
+      plan90HeadStyle: {
+        display: "flex", flexDirection: "row", alignItems: "center",
+        gap: m ? 16 : 28, width: "100%",
+      },
+      plan90PortraitStyle: {
+        width: m ? 80 : 120, height: m ? 80 : 120, flexShrink: 0,
+        borderRadius: "50%", objectFit: "cover", display: "block", marginLeft: 5,
+        boxShadow: "0 0 0 3px " + paper + ", 0 0 0 4.5px " + accent + ", 0 10px 28px rgba(0,59,117,0.12)",
       },
       plan90IntroStyle: {
         fontFamily: archivo, fontWeight: 600,
-        fontSize: "var(--fs-hero-lead)", lineHeight: 1.4,
+        fontSize: m ? 16 : "var(--fs-hero-lead)", lineHeight: 1.4,
         color: bodyText, margin: 0, maxWidth: 760,
       },
       plan90GridStyle: {
