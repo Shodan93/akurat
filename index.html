@@ -152,7 +152,7 @@
         </div>
       </div>
     </div>
-    <p style="{{ footerNoteStyle }}">Diese Landingpage habe ich für meine Bewerbung als Growth Marketing Manager (SEO, Performance &amp; AI) bei AkuRat erstellt.</p>
+    <p style="{{ footerNoteStyle }}">Diese Landingpage habe ich für meine Bewerbung als Growth Marketing Manager (SEO, Performance &amp; AI) bei AkuRat konzipiert und umgesetzt.</p>
     <span style="{{ copyrightStyle }}">© 2026 Svenja Mumelter · München</span>
   </div>
 
@@ -538,8 +538,8 @@ class Component extends DCLogic {
       },
       footerNoteStyle: {
         fontFamily: archivo, fontWeight: 400,
-        fontSize: m ? 12 : "min(var(--fs-caption), calc((100vw - 150px) / 60))", lineHeight: 1.5,
-        color: muted, margin: 0, whiteSpace: m ? "normal" : "nowrap",
+        fontSize: m ? 12 : "clamp(11.5px, calc((100vw - 150px) / 68), var(--fs-caption))", lineHeight: 1.5,
+        color: muted, margin: 0, whiteSpace: "normal",
       },
       footerPairStyle: { display: "flex", flexDirection: "column", gap: m ? 2 : 4 },
       footerLabelStyle: { fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-caption)", color: muted, margin: 0 },
