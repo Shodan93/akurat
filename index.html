@@ -66,6 +66,27 @@
       </div>
     </div>
 
+    <div style="{{ plan90Style }}" data-section="plan90">
+      <p style="{{ plan90IntroStyle }}">Kurze Einschätzung, wie Ihr Wachstum in den ersten 90 Tagen angehen würde:</p>
+      <div style="{{ plan90GridStyle }}">
+        <div style="{{ plan90CardStyle }}">
+          <span style="{{ plan90LabelStyle }}">TAG 1 BIS 30</span>
+          <h3 style="{{ plan90TitleStyle }}">Verstehen &amp; Messen</h3>
+          <p style="{{ plan90TextStyle }}">Bestehende Prozesse entlang der Lead Journey verstehen und analysieren, wie Website, Paid Media, Tracking, CRM und Vertrieb zusammenspielen. Vor allem: Welche Bewertungs-, Kontakt- und Telefon-Leads werden tatsächlich zu Erstgesprächen und Mandaten? Abgestimmt mit Geschäftsführung und Maklerteam.</p>
+        </div>
+        <div style="{{ plan90CardStyle }}">
+          <span style="{{ plan90LabelStyle }}">TAG 31 BIS 60</span>
+          <h3 style="{{ plan90TitleStyle }}">Priorisieren &amp; Testen</h3>
+          <p style="{{ plan90TextStyle }}">Größte Potenziale nach Wirkung angehen, etwa lokale Google Search Kampagnen, Standortseiten und die Immobilienbewertung. Jeder Test mit Hypothese und KPI, z.&nbsp;B. Kosten pro qualifiziertem Eigentümer-Lead.</p>
+        </div>
+        <div style="{{ plan90CardStyle }}">
+          <span style="{{ plan90LabelStyle }}">TAG 61 BIS 90</span>
+          <h3 style="{{ plan90TitleStyle }}">Automatisieren &amp; Skalieren</h3>
+          <p style="{{ plan90TextStyle }}">Erfolgreiche Maßnahmen nach Leadqualität ausbauen, Nurturing und Lead Routing prüfen und weiterentwickeln, wiederkehrende Aufgaben mit KI entlasten. Reporting, das nicht bei Traffic endet, sondern bis zum Mandat reicht.</p>
+        </div>
+      </div>
+    </div>
+
     <div style="{{ case1Style }}">
       <div style="{{ headerStyle }}">
         <div style="{{ eyebrowRowStyle }}">
@@ -299,6 +320,44 @@ class Component extends DCLogic {
         whiteSpace: "normal",
       },
 
+      plan90Style: {
+        position: "relative", zIndex: 1,
+        backgroundColor: m ? paper : "transparent",
+        display: "flex", flexDirection: "column", gap: m ? 20 : 24,
+        padding: m ? "8px 24px 8px 24px" : "0 72px 8px 72px",
+        alignItems: "flex-start",
+      },
+      plan90IntroStyle: {
+        fontFamily: archivo, fontWeight: 600,
+        fontSize: "var(--fs-hero-lead)", lineHeight: 1.4,
+        color: bodyText, margin: 0, maxWidth: 760,
+      },
+      plan90GridStyle: {
+        display: "flex", flexDirection: m ? "column" : "row",
+        gap: m ? 16 : 24, width: "100%", alignItems: "stretch",
+      },
+      plan90CardStyle: {
+        flex: "1 1 0", minWidth: 0,
+        display: "flex", flexDirection: "column", gap: 10,
+        padding: m ? "20px 20px 22px 20px" : "24px 24px 28px 24px",
+        borderRadius: 12,
+        backgroundColor: paperA(0.72),
+        boxShadow: "inset 0 0 0 1px " + accentLine,
+      },
+      plan90LabelStyle: {
+        fontFamily: mono, fontWeight: 400, fontSize: "var(--fs-label)",
+        letterSpacing: lsWide, lineHeight: 1.2, color: accentText, margin: 0,
+      },
+      plan90TitleStyle: {
+        fontFamily: archivoNarrow, fontWeight: 700,
+        fontSize: "var(--fs-case-sub)", letterSpacing: ls, lineHeight: 1.15,
+        color: strong, margin: 0,
+      },
+      plan90TextStyle: {
+        fontFamily: archivo, fontWeight: 400,
+        fontSize: "var(--fs-caption)", lineHeight: 1.6,
+        color: bodyText, margin: 0,
+      },
       case1Style: {
         position: "relative",
         zIndex: 1,
