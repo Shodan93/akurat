@@ -77,26 +77,28 @@
             <span style="{{ eyebrowStyle }}">KURZE EINSCHÄTZUNG</span>
             <div style="{{ plan90LineStyle }}"></div>
           </div>
-          <h2 style="{{ caseTitleStyle }}">Einschätzung, wie Ihr Wachstum in den ersten 90 Tagen angehen würde:</h2>
+          <h2 style="{{ plan90H2Style }}">Einschätzung, wie ich Ihr Wachstum in den ersten 90 Tagen angehen würde:</h2>
         </div>
       </div>
+      <p style="{{ plan90LeadStyle }}">Als Allrounderin decke ich SEO, Google- und Meta-Ads, Website, Content und Tracking selbst ab. Mit KI setze ich das schnell und effizient um.</p>
       <div style="{{ plan90GridStyle }}">
         <div style="{{ plan90CardStyle }}">
-          <span style="{{ plan90LabelStyle }}">TAG 1 BIS 30</span>
-          <h3 style="{{ plan90TitleStyle }}">Verstehen &amp; Messen</h3>
-          <p style="{{ plan90TextStyle }}">Bestehende Prozesse entlang der Lead Journey verstehen und analysieren, wie Website, Paid Media, Tracking, CRM und Vertrieb zusammenspielen. Vor allem: Welche Bewertungs-, Kontakt- und Telefon-Leads werden tatsächlich zu Erstgesprächen und Mandaten? Abgestimmt mit Geschäftsführung und Maklerteam.</p>
+          <span style="{{ plan90LabelStyle }}">SCHRITT 1</span>
+          <h3 style="{{ plan90TitleStyle }}">Verstehen &amp; Priorisieren</h3>
+          <p style="{{ plan90TextStyle }}">Zuerst verschaffe ich mir ein klares Bild vom gesamten Geschäft, mit Fokus auf Marketing und Online-Auftritt. Daraus erstelle ich eine Übersicht aller Themen und Potenziale. Diese priorisiere ich in einem Workshop, den ich mit der Geschäftsleitung, den Verantwortlichen der Repräsentanzen und allen relevanten Ansprechpartnern organisiere. Das Ergebnis ist eine klare Roadmap.</p>
         </div>
         <div style="{{ plan90CardStyle }}">
-          <span style="{{ plan90LabelStyle }}">TAG 31 BIS 60</span>
-          <h3 style="{{ plan90TitleStyle }}">Priorisieren &amp; Testen</h3>
-          <p style="{{ plan90TextStyle }}">Größte Potenziale nach Wirkung angehen, etwa lokale Google Search Kampagnen, Standortseiten und die Immobilienbewertung. Jeder Test mit Hypothese und KPI, z.&nbsp;B. Kosten pro qualifiziertem Eigentümer-Lead.</p>
+          <span style="{{ plan90LabelStyle }}">SCHRITT 2</span>
+          <h3 style="{{ plan90TitleStyle }}">Umsetzen</h3>
+          <p style="{{ plan90TextStyle }}">Anschließend setze ich die Maßnahmen mit dem größten Hebel um, von SEO und Standortseiten über lokale Google- und Meta-Kampagnen bis zur Immobilienbewertung. Mit meiner Erfahrung und KI als Unterstützung erledige ich den Großteil selbst. Externe Dienstleister binde ich nur dort ein, wo sie wirklich einen Mehrwert bringen.</p>
         </div>
         <div style="{{ plan90CardStyle }}">
-          <span style="{{ plan90LabelStyle }}">TAG 61 BIS 90</span>
-          <h3 style="{{ plan90TitleStyle }}">Automatisieren &amp; Skalieren</h3>
-          <p style="{{ plan90TextStyle }}">Erfolgreiche Maßnahmen nach Leadqualität ausbauen, Nurturing und Lead Routing prüfen und weiterentwickeln, wiederkehrende Aufgaben mit KI entlasten. Reporting, das nicht bei Traffic endet, sondern bis zum Mandat reicht.</p>
+          <span style="{{ plan90LabelStyle }}">SCHRITT 3</span>
+          <h3 style="{{ plan90TitleStyle }}">Messen &amp; Optimieren</h3>
+          <p style="{{ plan90TextStyle }}">Ich arbeite zahlen- und datengetrieben: Jede Maßnahme wird gemessen, optimiert und dort ausgebaut, wo sie nachweislich Anfragen und Mandate bringt. Wiederkehrende Aufgaben automatisiere ich. So entsteht ein Marketing, das messbar wirkt und im Tagesgeschäft verlässlich läuft.</p>
         </div>
       </div>
+      <p style="{{ plan90NoteStyle }}">Darüber hinaus übernehme ich bei Bedarf gern weitere Themen, etwa die Einführung neuer Tools und Systeme wie CRM, die Einführung neuer digitaler Angebote, die Steuerung von Dienstleistern und die Leitung von Projekten.</p>
     </div>
 
     <div style="{{ case1Style }}">
@@ -357,6 +359,23 @@ class Component extends DCLogic {
       plan90LineStyle: { width: m ? "min(160px, calc(100vw - 226px))" : 160, height: 1, backgroundColor: border, flexShrink: 0 },
       plan90HeaderWrapStyle: {
         width: "100%", marginTop: m ? 16 : 20,
+      },
+      plan90H2Style: {
+        fontFamily: archivoNarrow, fontWeight: 700,
+        fontSize: "var(--fs-case-title)", letterSpacing: ls, lineHeight: lh,
+        color: strong, margin: 0, textWrap: "balance",
+      },
+      plan90LeadStyle: {
+        fontFamily: archivo, fontWeight: 500,
+        fontSize: m ? 16 : "var(--fs-hero-lead)", lineHeight: 1.5,
+        color: bodyText, margin: m ? "-8px 0 -8px 0" : "-16px 0 -8px 0", maxWidth: 860,
+        borderLeft: "3px solid " + accent, paddingLeft: m ? 14 : 20,
+      },
+      plan90NoteStyle: {
+        fontFamily: archivo, fontWeight: 400,
+        fontSize: m ? 15 : "var(--fs-body)", lineHeight: 1.6,
+        color: muted, margin: m ? "-8px 0 0 0" : "-12px 0 0 0", maxWidth: 860,
+        borderLeft: "3px solid " + accent, paddingLeft: m ? 14 : 20,
       },
       plan90GridStyle: {
         display: "flex", flexDirection: m ? "column" : "row",
