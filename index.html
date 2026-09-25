@@ -181,7 +181,7 @@
           <span style="{{ footerLabelStyle }}">Konzept, Inhalt &amp; Design</span>
           <span style="{{ footerValueStyle }}">Svenja Mumelter · Figma</span>
         </div>
-        <div style="{{ footerPairRightStyle }}">
+        <div style="{{ footerPairStyle }}">
           <span style="{{ footerLabelStyle }}">Entwicklung</span>
           <span style="{{ footerValueStyle }}">Claude Code · KI-gestützter Entwicklungsworkflow</span>
         </div>
@@ -362,7 +362,7 @@ class Component extends DCLogic {
       },
       plan90H2Style: {
         fontFamily: archivoNarrow, fontWeight: 700,
-        fontSize: "var(--fs-case-title)", letterSpacing: ls, lineHeight: lh,
+        fontSize: m ? "var(--fs-case-title)" : "clamp(27px, calc((100vw - 150px) / 37.5), 35px)", letterSpacing: ls, lineHeight: lh,
         color: strong, margin: 0, textWrap: "balance",
       },
       plan90LeadStyle: {
@@ -623,8 +623,8 @@ class Component extends DCLogic {
 
       footerStyle: {
         backgroundColor: paper,
-        display: "flex", flexDirection: "column", gap: 20,
-        padding: m ? "32px 24px" : "32px 72px",
+        display: "flex", flexDirection: "column", gap: m ? 28 : 36,
+        padding: m ? "48px 24px 40px 24px" : "64px 72px 56px 72px",
       },
       footerDividerStyle: { height: 1, backgroundColor: border, width: "100%" },
       footerMainRowStyle: {
@@ -637,19 +637,18 @@ class Component extends DCLogic {
         color: muted, flexGrow: 1, margin: 0,
       },
       footerMetaStyle: {
-        display: "flex", flexDirection: m ? "column" : "row", gap: m ? 12 : 48,
-        justifyContent: "space-between", width: "100%", flexShrink: 0,
+        display: "flex", flexDirection: m ? "column" : "row", gap: m ? 22 : 88,
+        justifyContent: "flex-start", width: "100%", flexShrink: 0,
       },
       footerNoteStyle: {
         fontFamily: archivo, fontWeight: 400,
         fontSize: m ? 12 : "clamp(11.5px, calc((100vw - 150px) / 68), var(--fs-caption))", lineHeight: 1.5,
         color: muted, margin: 0, whiteSpace: "normal",
       },
-      footerPairRightStyle: { display: "flex", flexDirection: "column", gap: m ? 2 : 4, alignItems: m ? "flex-start" : "flex-end", textAlign: m ? "left" : "right" },
-      footerPairStyle: { display: "flex", flexDirection: "column", gap: m ? 2 : 4 },
-      footerLabelStyle: { fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-caption)", color: muted, margin: 0 },
+      footerPairStyle: { display: "flex", flexDirection: "column", gap: m ? 6 : 8 },
+      footerLabelStyle: { fontFamily: mono, fontWeight: 400, fontSize: "var(--fs-label)", letterSpacing: lsWide, textTransform: "uppercase", lineHeight: 1.2, color: muted, margin: 0 },
       footerValueStyle: { fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-caption)", letterSpacing: ls, color: bodyText, margin: 0 },
-      copyrightStyle: { fontFamily: mono, fontWeight: 400, fontSize: "var(--fs-caption)", color: muted, marginTop: -10 },
+      copyrightStyle: { fontFamily: mono, fontWeight: 400, fontSize: "var(--fs-caption)", color: muted, marginTop: m ? -14 : -20 },
     };
   }
 }
