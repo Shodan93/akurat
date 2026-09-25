@@ -139,7 +139,6 @@
   <div style="{{ footerStyle }}">
     <div style="{{ footerDividerStyle }}"></div>
     <div style="{{ footerMainRowStyle }}">
-      <p style="{{ footerParaStyle }}">Dieses Portfolio habe ich speziell für meine Bewerbung als Growth Marketing Manager (SEO, Performance &amp; AI) bei AkuRat erstellt.</p>
       <div style="{{ footerMetaStyle }}">
         <div style="{{ footerPairStyle }}">
           <span style="{{ footerLabelStyle }}">Konzept, Inhalt &amp; Design</span>
@@ -151,6 +150,7 @@
         </div>
       </div>
     </div>
+    <p style="{{ footerNoteStyle }}">Diese Landingpage habe ich für meine Bewerbung als Growth Marketing Manager (SEO, Performance &amp; AI) bei AkuRat erstellt.</p>
     <span style="{{ copyrightStyle }}">© 2026 Svenja Mumelter · München</span>
   </div>
 
@@ -531,8 +531,13 @@ class Component extends DCLogic {
         color: muted, flexGrow: 1, margin: 0,
       },
       footerMetaStyle: {
-        display: "flex", flexDirection: "column", gap: m ? 12 : 16,
-        width: m ? "100%" : 249, flexShrink: 0,
+        display: "flex", flexDirection: m ? "column" : "row", gap: m ? 12 : 48,
+        width: "100%", flexShrink: 0,
+      },
+      footerNoteStyle: {
+        fontFamily: archivo, fontWeight: 400,
+        fontSize: m ? 12 : "min(var(--fs-caption), calc((100vw - 150px) / 60))", lineHeight: 1.5,
+        color: muted, margin: 0, whiteSpace: m ? "normal" : "nowrap",
       },
       footerPairStyle: { display: "flex", flexDirection: "column", gap: m ? 2 : 4 },
       footerLabelStyle: { fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-caption)", color: muted, margin: 0 },
