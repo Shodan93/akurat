@@ -71,7 +71,15 @@
         <img src="assets/svenja-portrait-03.jpg" alt="Svenja Mumelter" width="120" height="120" style="{{ plan90PortraitStyle }}" />
         <p style="{{ plan90AboutStyle }}">&bdquo;Für meine Bewerbung habe ich diese kurze Landingpage erstellt. Hier finden Sie zwei konkrete Cases zu meiner Arbeitsweise sowie meine Einschätzung, wie ich Ihr Wachstum in den ersten 90 Tagen angehen würde.&ldquo;</p>
       </div>
-      <p style="{{ plan90IntroStyle }}">Kurze Einschätzung, wie Ihr Wachstum in den ersten 90 Tagen angehen würde:</p>
+      <div style="{{ plan90HeaderWrapStyle }}">
+        <div style="{{ headerStyle }}">
+          <div style="{{ eyebrowRowStyle }}">
+            <span style="{{ eyebrowStyle }}">KURZE EINSCHÄTZUNG</span>
+            <div style="{{ plan90LineStyle }}"></div>
+          </div>
+          <h2 style="{{ caseTitleStyle }}">Einschätzung, wie Ihr Wachstum in den ersten 90 Tagen angehen würde:</h2>
+        </div>
+      </div>
       <div style="{{ plan90GridStyle }}">
         <div style="{{ plan90CardStyle }}">
           <span style="{{ plan90LabelStyle }}">TAG 1 BIS 30</span>
@@ -327,7 +335,7 @@ class Component extends DCLogic {
       plan90Style: {
         position: "relative", zIndex: 1,
         backgroundColor: m ? paper : "transparent",
-        display: "flex", flexDirection: "column", gap: m ? 20 : 28,
+        display: "flex", flexDirection: "column", gap: m ? 28 : 40,
         padding: m ? "16px 24px 8px 24px" : "40px 72px 8px 72px",
         alignItems: "flex-start",
       },
@@ -346,10 +354,9 @@ class Component extends DCLogic {
         borderRadius: "50%", objectFit: "cover", display: "block", marginLeft: 5, marginTop: m ? 5 : 0,
         boxShadow: "0 0 0 3px " + paper + ", 0 0 0 4.5px " + accent + ", 0 10px 28px rgba(0,59,117,0.12)",
       },
-      plan90IntroStyle: {
-        fontFamily: archivo, fontWeight: 600,
-        fontSize: m ? 16 : "var(--fs-hero-lead)", lineHeight: 1.4,
-        color: bodyText, margin: m ? "20px 0 0 0" : "32px 0 0 0", maxWidth: 760,
+      plan90LineStyle: { flex: "0 1 160px", minWidth: 0, height: 1, backgroundColor: border },
+      plan90HeaderWrapStyle: {
+        width: "100%", marginTop: m ? 16 : 20,
       },
       plan90GridStyle: {
         display: "flex", flexDirection: m ? "column" : "row",
