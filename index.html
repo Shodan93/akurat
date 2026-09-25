@@ -68,9 +68,10 @@
 
     <div style="{{ plan90Style }}" data-section="plan90">
       <div style="{{ plan90HeadStyle }}">
-        <img src="assets/svenja-portrait.jpg" alt="Svenja Mumelter" width="120" height="120" style="{{ plan90PortraitStyle }}" />
-        <p style="{{ plan90IntroStyle }}">Kurze Einschätzung, wie Ihr Wachstum in den ersten 90 Tagen angehen würde:</p>
+        <img src="assets/svenja-portrait-02.jpg" alt="Svenja Mumelter" width="120" height="120" style="{{ plan90PortraitStyle }}" />
+        <p style="{{ plan90AboutStyle }}">In meiner gerade abgeschlossenen Weiterbildung habe ich aktuelles, direkt anwendbares Know-how in SEO, Performance Marketing, Webanalyse, Conversion-Optimierung, Growth Marketing sowie KPI-Analyse und Reporting vertieft.</p>
       </div>
+      <p style="{{ plan90IntroStyle }}">Kurze Einschätzung, wie Ihr Wachstum in den ersten 90 Tagen angehen würde:</p>
       <div style="{{ plan90GridStyle }}">
         <div style="{{ plan90CardStyle }}">
           <span style="{{ plan90LabelStyle }}">TAG 1 BIS 30</span>
@@ -254,7 +255,7 @@ class Component extends DCLogic {
         position: "absolute", inset: 0, zIndex: 0,
         backgroundImage: "url(assets/hero-akurat-neu-04.jpg)",
         backgroundPosition: "top center",
-        backgroundSize: "cover",
+        backgroundSize: "100% auto",
         backgroundRepeat: "no-repeat",
       },
       heroStyle: {
@@ -326,17 +327,23 @@ class Component extends DCLogic {
       plan90Style: {
         position: "relative", zIndex: 1,
         backgroundColor: m ? paper : "transparent",
-        display: "flex", flexDirection: "column", gap: m ? 24 : 32,
+        display: "flex", flexDirection: "column", gap: m ? 20 : 28,
         padding: m ? "16px 24px 8px 24px" : "40px 72px 8px 72px",
         alignItems: "flex-start",
       },
       plan90HeadStyle: {
-        display: "flex", flexDirection: "row", alignItems: "center",
-        gap: m ? 16 : 28, width: "100%",
+        display: "flex", flexDirection: m ? "column" : "row",
+        alignItems: m ? "flex-start" : "center",
+        gap: m ? 16 : 32, width: "100%",
+      },
+      plan90AboutStyle: {
+        fontFamily: archivo, fontWeight: 500,
+        fontSize: m ? 17 : "calc(var(--fs-hero-lead) + 1.5px)", lineHeight: 1.5,
+        color: bodyText, margin: 0, maxWidth: 940, textWrap: "balance",
       },
       plan90PortraitStyle: {
-        width: m ? 80 : 120, height: m ? 80 : 120, flexShrink: 0,
-        borderRadius: "50%", objectFit: "cover", display: "block", marginLeft: 5,
+        width: m ? 96 : 120, height: m ? 96 : 120, flexShrink: 0,
+        borderRadius: "50%", objectFit: "cover", display: "block", marginLeft: 5, marginTop: m ? 5 : 0,
         boxShadow: "0 0 0 3px " + paper + ", 0 0 0 4.5px " + accent + ", 0 10px 28px rgba(0,59,117,0.12)",
       },
       plan90IntroStyle: {
