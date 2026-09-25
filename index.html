@@ -45,6 +45,8 @@
     body { margin: 0; background: var(--surface-page); }
     a { color: var(--ink-900); text-decoration: underline; text-decoration-color: var(--accent-gold); text-underline-offset: 3px; }
     a:hover { color: var(--ink-700); }
+    html { scroll-behavior: smooth; }
+    [id] { scroll-margin-top: 24px; }
   </style>
 </helmet>
 <div style="{{ pageStyle }}">
@@ -61,13 +63,18 @@
       </sc-if>
       <div style="{{ heroContentStyle }}">
         <img src="assets/akurat-logo.png" alt="AkuRat Immobilien" width="1449" height="571" style="{{ heroLogoStyle }}" />
-        <span style="{{ eyebrowStyle }}">AUSGEWÄHLTE ARBEITEN · GROWTH MARKETING</span>
-        <h1 style="{{ h1Style }}">Meine Bewerbung als Growth Marketing Manager</h1>
+        <nav aria-label="Inhalt" style="{{ tocStyle }}">
+          <a href="#plan" style="{{ tocLinkStyle }}"><span style="{{ tocNumStyle }}">01</span>90-Tage-Plan</a>
+          <a href="#royalshrimp" style="{{ tocLinkStyle }}"><span style="{{ tocNumStyle }}">02</span>Case RoyalShrimp</a>
+          <a href="#cuply" style="{{ tocLinkStyle }}"><span style="{{ tocNumStyle }}">03</span>Case Cuply</a>
+          <a href="#kontakt" style="{{ tocLinkStyle }}"><span style="{{ tocNumStyle }}">04</span>Kontakt</a>
+        </nav>
+        <h1 style="{{ h1Style }}">Bewerbung als Growth Marketing Manager</h1>
         <p style="{{ subtitle1Style }}">Svenja Mumelter · SEO, Performance &amp; AI</p>
       </div>
     </div>
 
-    <div style="{{ plan90Style }}" data-section="plan90">
+    <div id="plan" style="{{ plan90Style }}" data-section="plan90">
       <div style="{{ plan90HeadStyle }}">
         <img src="assets/svenja-portrait-03.jpg" alt="Svenja Mumelter" width="120" height="120" style="{{ plan90PortraitStyle }}" />
         <p style="{{ plan90AboutStyle }}">&bdquo;Für meine Bewerbung habe ich diese Landingpage erstellt. Hier finden Sie zwei konkrete Cases zu meiner Arbeitsweise sowie meine Einschätzung, wie ich Ihr Wachstum in den ersten 90 Tagen angehen würde.&ldquo;</p>
@@ -104,14 +111,14 @@
         <p style="{{ plan90GoalTextStyle }}">Ein messbar erfolgreiches Marketing, ein starker Online-Auftritt und darauf aufbauend effizientere Geschäftsprozesse.</p>
       </div>
       <p style="{{ plan90NoteStyle }}">Darüber hinaus übernehme ich bei Bedarf gern weitere Themen, etwa die Weiterentwicklung und Anbindung von Tools und Systemen wie CRM, die Einführung neuer digitaler Angebote, die Steuerung von Dienstleistern und die Leitung von Projekten.</p>
-      <div style="{{ ctaStyle }}">
+      <div id="kontakt" style="{{ ctaStyle }}">
         <div style="{{ ctaTextWrapStyle }}">
           <span style="{{ ctaLabelStyle }}">KONTAKT</span>
           <p style="{{ ctaTextStyle }}">Wenn ich Sie neugierig gemacht habe oder Sie weitere Fragen haben, freue ich mich sehr über Ihre direkte Kontaktaufnahme.</p>
         </div>
         <div style="{{ ctaLinksStyle }}">
-          <a href="mailto:svenja.mumelter@gmx.de" style="{{ ctaLinkStyle }}">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#decd93" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>
+          <a href="mailto:svenja.mumelter@gmx.de" style="{{ ctaPrimaryStyle }}">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#003b75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>
             svenja.mumelter@gmx.de
           </a>
           <a href="tel:+4917681922933" style="{{ ctaLinkStyle }}">
@@ -122,7 +129,7 @@
       </div>
     </div>
 
-    <div style="{{ case1Style }}">
+    <div id="royalshrimp" style="{{ case1Style }}">
       <div style="{{ headerStyle }}">
         <div style="{{ eyebrowRowStyle }}">
           <span style="{{ eyebrowStyle }}">CASE 01</span>
@@ -169,7 +176,7 @@
     </div>
   </div>
 
-  <div style="{{ case2Style }}" data-section="case2">
+  <div id="cuply" style="{{ case2Style }}" data-section="case2">
     <div style="{{ case2BgStyle }}"></div>
     <div style="{{ case2WashStyle }}"></div>
     <div style="{{ case2HeaderStyle }}">
@@ -320,6 +327,25 @@ class Component extends DCLogic {
         padding: m ? 0 : "0 72px",
         width: "100%",
       },
+      tocStyle: {
+        display: "flex", flexWrap: "wrap", alignItems: "center",
+        columnGap: m ? 8 : 10, rowGap: 8,
+        marginBottom: m ? 4 : 8,
+      },
+      tocLinkStyle: {
+        display: "inline-flex", alignItems: "center", gap: 8,
+        padding: m ? "6px 12px 6px 6px" : "7px 16px 7px 7px", borderRadius: 999,
+        backgroundColor: paperA(0.85),
+        boxShadow: "inset 0 0 0 1px " + accentLine,
+        fontFamily: archivo, fontWeight: 600, fontSize: m ? 13 : "var(--fs-link)",
+        color: "var(--ink-900)", textDecoration: "none", whiteSpace: "nowrap",
+      },
+      tocNumStyle: {
+        display: "inline-flex", alignItems: "center", justifyContent: "center",
+        width: m ? 24 : 28, height: m ? 24 : 28, borderRadius: "50%",
+        backgroundColor: accent, color: "var(--ink-900)",
+        fontFamily: mono, fontWeight: 700, fontSize: m ? 11 : 12,
+      },
       heroLogoStyle: {
         display: "block", height: m ? 44 : 64, width: "auto",
         marginBottom: m ? 12 : 20,
@@ -419,6 +445,13 @@ class Component extends DCLogic {
       ctaLinksStyle: {
         display: "flex", flexDirection: "column", gap: 12, flexShrink: 0,
         width: m ? "100%" : "auto",
+      },
+      ctaPrimaryStyle: {
+        display: "flex", alignItems: "center", gap: 12,
+        padding: "13px 22px", borderRadius: 999,
+        backgroundColor: accent,
+        fontFamily: archivo, fontWeight: 700, fontSize: m ? 16 : "var(--fs-body)",
+        color: "var(--ink-900)", textDecoration: "none", whiteSpace: "nowrap",
       },
       ctaLinkStyle: {
         display: "flex", alignItems: "center", gap: 12,
