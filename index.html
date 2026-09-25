@@ -46,6 +46,8 @@
     a { color: var(--ink-900); text-decoration: underline; text-decoration-color: var(--accent-gold); text-underline-offset: 3px; }
     a:hover { color: var(--ink-700); }
     html { scroll-behavior: smooth; }
+    .toc a { color: inherit; text-decoration: none; }
+    .toc a:hover { color: inherit; text-decoration: underline; text-decoration-color: var(--accent-gold); }
     [id] { scroll-margin-top: 24px; }
   </style>
 </helmet>
@@ -63,12 +65,7 @@
       </sc-if>
       <div style="{{ heroContentStyle }}">
         <img src="assets/akurat-logo.png" alt="AkuRat Immobilien" width="1449" height="571" style="{{ heroLogoStyle }}" />
-        <nav aria-label="Inhalt" style="{{ tocStyle }}">
-          <a href="#plan" style="{{ tocLinkStyle }}"><span style="{{ tocNumStyle }}">01</span>90-Tage-Plan</a>
-          <a href="#royalshrimp" style="{{ tocLinkStyle }}"><span style="{{ tocNumStyle }}">02</span>Case RoyalShrimp</a>
-          <a href="#cuply" style="{{ tocLinkStyle }}"><span style="{{ tocNumStyle }}">03</span>Case Cuply</a>
-          <a href="#kontakt" style="{{ tocLinkStyle }}"><span style="{{ tocNumStyle }}">04</span>Kontakt</a>
-        </nav>
+        <nav aria-label="Inhalt" class="toc" style="{{ eyebrowStyle }}"><a href="#plan">90-TAGE-PLAN</a> · <a href="#royalshrimp">CASE ROYALSHRIMP</a> · <a href="#cuply">CASE CUPLY</a> · <a href="#kontakt">KONTAKT</a></nav>
         <h1 style="{{ h1Style }}">Bewerbung als Growth Marketing Manager</h1>
         <p style="{{ subtitle1Style }}">Svenja Mumelter · SEO, Performance &amp; AI</p>
       </div>
@@ -326,25 +323,6 @@ class Component extends DCLogic {
         justifyContent: "center",
         padding: m ? 0 : "0 72px",
         width: "100%",
-      },
-      tocStyle: {
-        display: "flex", flexWrap: "wrap", alignItems: "center",
-        columnGap: m ? 8 : 10, rowGap: 8,
-        marginBottom: m ? 4 : 8,
-      },
-      tocLinkStyle: {
-        display: "inline-flex", alignItems: "center", gap: 8,
-        padding: m ? "6px 12px 6px 6px" : "7px 16px 7px 7px", borderRadius: 999,
-        backgroundColor: paperA(0.85),
-        boxShadow: "inset 0 0 0 1px " + accentLine,
-        fontFamily: archivo, fontWeight: 600, fontSize: m ? 13 : "var(--fs-link)",
-        color: "var(--ink-900)", textDecoration: "none", whiteSpace: "nowrap",
-      },
-      tocNumStyle: {
-        display: "inline-flex", alignItems: "center", justifyContent: "center",
-        width: m ? 24 : 28, height: m ? 24 : 28, borderRadius: "50%",
-        backgroundColor: accent, color: "var(--ink-900)",
-        fontFamily: mono, fontWeight: 700, fontSize: m ? 11 : 12,
       },
       heroLogoStyle: {
         display: "block", height: m ? 44 : 64, width: "auto",
