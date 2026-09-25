@@ -35,7 +35,7 @@
     /* Typography scale (mobile, same breakpoint as the page logic) */
     @media (max-width: 859px) {
       :root {
-        --fs-hero-title:42px; --fs-hero-lead:calc(17px * var(--type-scale)); --fs-hero-text:calc(16px * var(--type-scale));
+        --fs-hero-title:min(33px, calc((100vw - 48px) / 9.4)); --fs-hero-lead:calc(17px * var(--type-scale)); --fs-hero-text:calc(16px * var(--type-scale));
         --fs-label:calc(12px * var(--type-scale)); --fs-case-title:calc(30px * var(--type-scale)); --fs-case-sub:calc(17px * var(--type-scale));
         --fs-body:calc(16px * var(--type-scale)); --fs-bullet:calc(16px * var(--type-scale)); --fs-caption:calc(14px * var(--type-scale)); --fs-button:calc(14px * var(--type-scale)); --fs-link:calc(14px * var(--type-scale));
       }
@@ -60,9 +60,9 @@
       </sc-if>
       <div style="{{ heroContentStyle }}">
         <span style="{{ eyebrowStyle }}">AUSGEWÄHLTE ARBEITEN · GROWTH MARKETING</span>
-        <h1 style="{{ h1Style }}">Vom eigenen Onlineshop zu messbarem Wachstum.</h1>
+        <h1 style="{{ h1Style }}">Vom eigenen Onlineshop zu datengetriebenem Growth Marketing.</h1>
         <p style="{{ subtitle1Style }}">Svenja Mumelter · Bewerbung als Growth Marketing Manager (SEO, Performance &amp; AI) · AkuRat</p>
-        <p style="{{ subtitle2Style }}">Ausgewählte Arbeiten aus E&#8209;Commerce, digitalem Marketing, Customer Journey und KI-gestützten Workflows.</p>
+        <p style="{{ subtitle2Style }}">Ausgewählte Projekte und Arbeitsproben aus E&#8209;Commerce, SEO, Performance Marketing, Conversion-Optimierung und KI-gestützten Marketingprozessen.</p>
       </div>
     </div>
 
@@ -236,7 +236,7 @@ class Component extends DCLogic {
         zIndex: 1,
         overflow: "hidden",
         backgroundColor: m ? paper : "transparent",
-        height: m ? "auto" : 400,
+        height: m ? "auto" : 480,
         padding: m ? "56px 24px 44px 24px" : "0",
         display: "flex",
         alignItems: m ? "flex-start" : "stretch",
@@ -278,7 +278,7 @@ class Component extends DCLogic {
         lineHeight: lh,
         color: strong,
         margin: 0,
-        maxWidth: m ? "100%" : 900,
+        maxWidth: m ? "100%" : 900, textWrap: "balance",
       },
       subtitle1Style: {
         fontFamily: archivo, fontWeight: 600,
