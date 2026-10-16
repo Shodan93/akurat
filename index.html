@@ -54,6 +54,24 @@
     .toc a { color: inherit; text-decoration: none; }
     .toc a:hover { color: inherit; text-decoration: underline; text-decoration-color: var(--accent-gold); }
     [id] { scroll-margin-top: 24px; }
+    /* walkthrough preview: the blue play button turns gold on hover, instantly */
+    .video-tile:hover .vt-play, .video-tile:focus-visible .vt-play { background-color: var(--accent-gold) !important; color: var(--ink-900) !important; }
+    .video-tile:focus-visible { outline: 3px solid var(--ink-900); outline-offset: 3px; }
+    .util-link:hover { text-decoration-color: var(--ink-900) !important; }
+    .util-link:focus-visible { outline: 2px solid var(--ink-900); outline-offset: 3px; }
+    .footer-link:hover, .footer-link:focus-visible { text-decoration: underline !important; text-decoration-color: var(--accent-gold) !important; text-underline-offset: 4px; }
+    .footer-link:focus-visible { outline: 2px solid var(--accent-gold); outline-offset: 3px; }
+    /* AI project cards: the whole card is one button (stretched ::after above bullets/preview); hover = instant blue hairline */
+    .ai-card-click:hover { border-color: var(--ink-900) !important; }
+    .ai-card-click:hover .ai-card-hint { text-decoration: underline; text-decoration-color: var(--accent-gold); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+    .card-stretch::after { content: ""; position: absolute; inset: 0; z-index: 2; border-radius: 12px; }
+    .card-stretch:focus-visible { outline: none; }
+    .card-stretch:focus-visible::after { outline: 3px solid var(--ink-900); outline-offset: 3px; }
+    .proj-bullets li::before { content: ""; position: absolute; left: 0; top: 0.68em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-gold); }
+    /* project overlay in AkuRat blue; buttons swap to gold instantly */
+    #proj-dialog::backdrop { background: rgba(0, 32, 64, 0.78); }
+    .dialog-close:hover, .dialog-close:focus-visible, .dlg-arrow:hover, .dlg-arrow:focus-visible { background-color: var(--accent-gold) !important; color: var(--ink-900) !important; }
+    .dialog-close:focus-visible, .dlg-arrow:focus-visible, .dlg-dot:focus-visible { outline: 2px solid #ffffff; outline-offset: 2px; }
   </style>
 </helmet>
 <div style="{{ pageStyle }}">
@@ -78,7 +96,7 @@
 
     <div id="plan" style="{{ plan90Style }}" data-section="plan90">
       <div style="{{ plan90HeadStyle }}">
-        <img src="assets/svenja-portrait-03.jpg" alt="Svenja Mumelter" width="120" height="120" style="{{ plan90PortraitStyle }}" />
+        <img src="assets/svenja-portrait-03.jpg" alt="Svenja Mumelter" width="168" height="168" style="{{ plan90PortraitStyle }}" />
         <p style="{{ plan90AboutStyle }}">&bdquo;Für meine Bewerbung habe ich diese Landingpage erstellt.<span style="display:block;text-indent:0;text-wrap:balance">Hier finden Sie meinen Plan für die ersten 90 Tage sowie zwei konkrete Cases zu meiner Arbeitsweise.&ldquo;</span></p>
       </div>
       <div style="{{ plan90HeaderWrapStyle }}">
@@ -113,25 +131,157 @@
         <p style="{{ plan90GoalTextStyle }}">Ein messbar erfolgreiches Marketing, ein starker Online-Auftritt und darauf aufbauend effizientere Geschäftsprozesse.</p>
       </div>
       <p style="{{ plan90NoteStyle }}">Darüber hinaus übernehme ich bei Bedarf gern weitere Themen, etwa die Weiterentwicklung und Anbindung von Tools und Systemen wie CRM, die Einführung neuer digitaler Angebote, die Steuerung von Dienstleistern und die Leitung von Projekten.</p>
-      <section id="kontakt" aria-labelledby="kontakt-title" style="{{ ctaStyle }}">
-        <div style="{{ ctaTextWrapStyle }}">
-        <span style="{{ ctaLabelStyle }}">KONTAKT</span>
-        <h2 id="kontakt-title" style="{{ ctaTextStyle }}">Lassen Sie uns sprechen – ich freue mich auf Ihre Nachricht.</h2>
-        </div>
-        <div style="{{ ctaLinksStyle }}">
-          <a href="mailto:svenja.mumelter@gmx.de" class="cta-link" aria-label="E-Mail an svenja.mumelter@gmx.de schreiben" style="{{ ctaLinkStyle }}">
-            <span style="{{ ctaIconStyle }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#003b75" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span>
-            <span style="{{ ctaLinkTextStyle }}"><span style="{{ ctaLinkLabelStyle }}">E-Mail</span><span style="{{ ctaLinkValueStyle }}">svenja.mumelter@gmx.de</span></span>
-          </a>
-          <a href="tel:+4917681922033" class="cta-link" aria-label="Svenja Mumelter anrufen: 0176 81922033" style="{{ ctaLinkStyle }}">
-            <span style="{{ ctaIconStyle }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#003b75" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
-            <span style="{{ ctaLinkTextStyle }}"><span style="{{ ctaLinkLabelStyle }}">Telefon</span><span style="{{ ctaLinkValueStyle }}">0176 81922033</span></span>
-          </a>
-        </div>
-      </section>
     </div>
 
   </div>
+
+  <!-- Skills: own calm band (full-width blue-grey surface), white cards, no outlines -->
+  <section id="skills" aria-labelledby="skills-title" style="{{ skillsBandStyle }}">
+    <div style="{{ skillsWrapStyle }}">
+    <div style="{{ headerStyle }}">
+      <div style="{{ eyebrowRowStyle }}">
+        <span style="{{ eyebrowStyle }}">SKILLS UND TOOLS</span>
+        <div style="{{ plan90LineStyle }}"></div>
+      </div>
+      <h2 id="skills-title" style="{{ plan90H2Style }}">Das bringe ich mit.</h2>
+    </div>
+    <div style="{{ skillsGridStyle }}">
+      <div style="{{ skillsCardStyle }}">
+        <h3 style="{{ plan90TitleStyle }}">AI und Automatisierung</h3>
+        <ul style="{{ skillsChipsStyle }}"><li style="{{ skillsChipStyle }}">ChatGPT</li><li style="{{ skillsChipStyle }}">Codex</li><li style="{{ skillsChipStyle }}">Claude</li><li style="{{ skillsChipStyle }}">Claude Code</li><li style="{{ skillsChipStyle }}">Gemini</li><li style="{{ skillsChipStyle }}">Perplexity</li><li style="{{ skillsChipStyle }}">n8n</li><li style="{{ skillsChipStyle }}">Eigene MCP-Server</li><li style="{{ skillsChipStyle }}">Claude Skills</li></ul>
+      </div>
+      <div style="{{ skillsCardStyle }}">
+        <h3 style="{{ plan90TitleStyle }}">Entwicklung und Hosting</h3>
+        <ul style="{{ skillsChipsStyle }}"><li style="{{ skillsChipStyle }}">Vibe Coding</li><li style="{{ skillsChipStyle }}">GitHub</li><li style="{{ skillsChipStyle }}">Cloudflare</li><li style="{{ skillsChipStyle }}">Supabase</li><li style="{{ skillsChipStyle }}">Raspberry Pi</li></ul>
+      </div>
+      <div style="{{ skillsCardStyle }}">
+        <h3 style="{{ plan90TitleStyle }}">SEO und GEO</h3>
+        <ul style="{{ skillsChipsStyle }}"><li style="{{ skillsChipStyle }}">Search Console</li><li style="{{ skillsChipStyle }}">Sistrix</li><li style="{{ skillsChipStyle }}">Semrush</li><li style="{{ skillsChipStyle }}">Ahrefs</li><li style="{{ skillsChipStyle }}">Screaming Frog</li><li style="{{ skillsChipStyle }}">PageSpeed Insights</li><li style="{{ skillsChipStyle }}">AnswerThePublic</li><li style="{{ skillsChipStyle }}">Content-Strategie</li></ul>
+      </div>
+      <div style="{{ skillsCardStyle }}">
+        <h3 style="{{ plan90TitleStyle }}">Performance Marketing</h3>
+        <ul style="{{ skillsChipsStyle }}"><li style="{{ skillsChipStyle }}">Google Ads</li><li style="{{ skillsChipStyle }}">Meta Ads</li><li style="{{ skillsChipStyle }}">Performance Max</li><li style="{{ skillsChipStyle }}">Advantage+</li><li style="{{ skillsChipStyle }}">Gebotsstrategien</li><li style="{{ skillsChipStyle }}">Conversion-Tracking</li><li style="{{ skillsChipStyle }}">Remarketing</li><li style="{{ skillsChipStyle }}">Consent Mode V2</li></ul>
+      </div>
+      <div style="{{ skillsCardStyle }}">
+        <h3 style="{{ plan90TitleStyle }}">Webanalyse und Tracking</h3>
+        <ul style="{{ skillsChipsStyle }}"><li style="{{ skillsChipStyle }}">GA4</li><li style="{{ skillsChipStyle }}">Google Tag Manager</li><li style="{{ skillsChipStyle }}">Looker Studio</li><li style="{{ skillsChipStyle }}">Microsoft Clarity</li><li style="{{ skillsChipStyle }}">Event-Tracking</li><li style="{{ skillsChipStyle }}">DSGVO-konformes Tracking</li></ul>
+      </div>
+      <div style="{{ skillsCardStyle }}">
+        <h3 style="{{ plan90TitleStyle }}">CRM und Marketing Automation</h3>
+        <ul style="{{ skillsChipsStyle }}"><li style="{{ skillsChipStyle }}">Salesforce</li><li style="{{ skillsChipStyle }}">Salesforce Marketing Cloud</li><li style="{{ skillsChipStyle }}">Brevo</li><li style="{{ skillsChipStyle }}">Lead Scoring</li><li style="{{ skillsChipStyle }}">Segmentierung</li><li style="{{ skillsChipStyle }}">A/B-Testing</li></ul>
+      </div>
+      <div style="{{ skillsCardStyle }}">
+        <h3 style="{{ plan90TitleStyle }}">Landingpages und Conversion</h3>
+        <ul style="{{ skillsChipsStyle }}"><li style="{{ skillsChipStyle }}">Figma</li><li style="{{ skillsChipStyle }}">Seitenstruktur</li><li style="{{ skillsChipStyle }}">Landingpage-Aufbau</li><li style="{{ skillsChipStyle }}">Message Match</li><li style="{{ skillsChipStyle }}">Mobile-Optimierung</li><li style="{{ skillsChipStyle }}">Conversion-Optimierung</li></ul>
+      </div>
+      <div style="{{ skillsCardStyle }}">
+        <h3 style="{{ plan90TitleStyle }}">Online-Marketing-Strategie</h3>
+        <ul style="{{ skillsChipsStyle }}"><li style="{{ skillsChipStyle }}">Business Model Canvas</li><li style="{{ skillsChipStyle }}">SWOT-Analyse</li><li style="{{ skillsChipStyle }}">Personas</li><li style="{{ skillsChipStyle }}">Customer Journey</li><li style="{{ skillsChipStyle }}">KPI-Definition</li><li style="{{ skillsChipStyle }}">Kampagnenplanung</li><li style="{{ skillsChipStyle }}">Budgetplanung</li></ul>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Contact: its own section between the skills band and the AI projects, on light paper so the blue box stands out -->
+  <div style="{{ ctaBandStyle }}">
+    <section id="kontakt" aria-labelledby="kontakt-title" style="{{ ctaStyle }}">
+      <div style="{{ ctaTextWrapStyle }}">
+      <span style="{{ ctaLabelStyle }}">KONTAKT</span>
+      <h2 id="kontakt-title" style="{{ ctaTextStyle }}">Konnte ich Sie überzeugen?<br /> Ich freue mich auf ein Gespräch mit Ihnen.</h2>
+      </div>
+      <div style="{{ ctaLinksStyle }}">
+        <a href="mailto:svenja.mumelter@gmx.de" class="cta-link" aria-label="E-Mail an svenja.mumelter@gmx.de schreiben" style="{{ ctaLinkStyle }}">
+          <span style="{{ ctaIconStyle }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#003b75" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span>
+          <span style="{{ ctaLinkTextStyle }}"><span style="{{ ctaLinkLabelStyle }}">E-Mail</span><span style="{{ ctaLinkValueStyle }}">svenja.mumelter@gmx.de</span></span>
+        </a>
+        <a href="tel:+4917681922033" class="cta-link" aria-label="Svenja Mumelter anrufen: 0176 81922033" style="{{ ctaLinkStyle }}">
+          <span style="{{ ctaIconStyle }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#003b75" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
+          <span style="{{ ctaLinkTextStyle }}"><span style="{{ ctaLinkLabelStyle }}">Telefon</span><span style="{{ ctaLinkValueStyle }}">0176 81922033</span></span>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- AI projects (content from the EDTELLIGENT page), AkuRat look: own band with a quiet architecture background -->
+  <section id="ai-projekte" aria-labelledby="ai-title" style="{{ aiBandStyle }}">
+    <div style="{{ aiInnerStyle }}">
+      <div style="{{ headerStyle }}">
+        <div style="{{ eyebrowRowStyle }}">
+          <span style="{{ eyebrowStyle }}">EIGENE PROJEKTE</span>
+          <div style="{{ plan90LineStyle }}"></div>
+        </div>
+        <h2 id="ai-title" style="{{ plan90H2Style }}">Ein paar meiner AI-Projekte</h2>
+      </div>
+      <p style="{{ aiLeadStyle }}">Neue Ideen habe ich fast jede Woche. Diese hier habe ich umgesetzt, alle selbst gebaut per Vibe Coding.</p>
+
+      <ul style="{{ projGridStyle }}">
+        <sc-for list="{{ bigProjects }}" as="p">
+          <li class="ai-card-click" style="{{ projCardStyle }}">
+            <div style="{{ projPreviewStyle }}"><img src="{{ p.preview }}" alt="" loading="lazy" decoding="async" style="{{ p.previewImgStyle }}" /></div>
+            <div style="{{ projBodyStyle }}">
+              <h3 style="{{ projTitleStyle }}"><button type="button" class="card-stretch" aria-haspopup="dialog" onClick="{{ p.open }}" style="{{ cardStretchBtnStyle }}">{{ p.title }}</button></h3>
+              <p style="{{ projOneLinerStyle }}">{{ p.oneliner }}</p>
+              <ul class="proj-bullets" style="{{ projBulletsStyle }}"><sc-for list="{{ p.bullets }}" as="b"><li style="{{ projBulletStyle }}">{{ b }}</li></sc-for></ul>
+              <span class="ai-card-hint" aria-hidden="true" style="{{ aiHintStyle }}">SCREENSHOTS ANSEHEN</span>
+            </div>
+          </li>
+        </sc-for>
+      </ul>
+
+      <ul style="{{ duoGridStyle }}">
+        <sc-for list="{{ duoProjects }}" as="q">
+          <li class="ai-card-click" style="{{ projCardStyle }}">
+            <div style="{{ duoPreviewStyle }}"><img src="{{ q.preview }}" alt="" loading="lazy" decoding="async" style="{{ q.previewImgStyle }}" /></div>
+            <div style="{{ projBodyStyle }}">
+              <h3 style="{{ projTitleStyle }}"><button type="button" class="card-stretch" aria-haspopup="dialog" onClick="{{ q.open }}" style="{{ cardStretchBtnStyle }}">{{ q.title }}</button></h3>
+              <p style="{{ projOneLinerStyle }}">{{ q.p1 }}</p>
+              <p style="{{ duoNoteStyle }}">{{ q.p2 }}</p>
+              <span class="ai-card-hint" aria-hidden="true" style="{{ aiHintStyle }}">{{ q.hint }}</span>
+            </div>
+          </li>
+        </sc-for>
+      </ul>
+
+      <div style="{{ moreWrapStyle }}" aria-label="Außerdem gebaut">
+        <h3 style="{{ moreHeadStyle }}">AUSSERDEM GEBAUT</h3>
+        <ul style="{{ moreGridStyle }}">
+          <sc-for list="{{ moreProjects }}" as="x">
+            <li style="{{ moreTileStyle }}">
+              <h4 style="{{ moreTitleStyle }}">{{ x.title }}</h4>
+              <p style="{{ moreTextStyle }}">{{ x.text }}</p>
+            </li>
+          </sc-for>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- one overlay for all projects: native <dialog> (Esc, focus trap); gallery nav only when a project has several images -->
+    <dialog id="proj-dialog" aria-labelledby="proj-dialog-title" onClick="{{ onDialogBackdrop }}" style="{{ dlgStyle }}">
+      <div style="{{ dlgBarStyle }}">
+        <p id="proj-dialog-title" style="{{ dlgTitleStyle }}">{{ dlgTitle }} <span style="{{ dlgCountStyle }}">{{ dlgCount }}</span></p>
+        <button type="button" class="dialog-close" aria-label="Schließen" onClick="{{ closeGallery }}" style="{{ dlgCloseStyle }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+      </div>
+      <div id="proj-stage" style="{{ dlgStageStyle }}">
+        <sc-if value="{{ dlgMulti }}"><button type="button" class="dlg-arrow" aria-label="Vorheriges Bild" onClick="{{ prevSlide }}" style="{{ dlgArrowStyle }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></button></sc-if>
+        <div style="{{ dlgFrameAreaStyle }}">
+          <sc-if value="{{ dlgOpen }}">
+            <div style="{{ slide.frameStyle }}">
+              <sc-if value="{{ slide.isBrowser }}"><div style="{{ browserBarStyle }}" aria-hidden="true"><span style="{{ browserDotStyle }}"></span><span style="{{ browserDotStyle }}"></span><span style="{{ browserDotStyle }}"></span></div></sc-if>
+              <img src="{{ slide.src }}" alt="{{ slide.alt }}" decoding="async" style="{{ slide.imgStyle }}" />
+            </div>
+          </sc-if>
+        </div>
+        <sc-if value="{{ dlgMulti }}"><button type="button" class="dlg-arrow" aria-label="Nächstes Bild" onClick="{{ nextSlide }}" style="{{ dlgArrowStyle }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></button></sc-if>
+      </div>
+      <p style="{{ dlgCaptionStyle }}" aria-live="polite">{{ slide.caption }}</p>
+      <sc-if value="{{ dlgMulti }}">
+        <div style="{{ dotsStyle }}">
+          <sc-for list="{{ dots }}" as="d"><button type="button" class="dlg-dot" aria-label="{{ d.label }}" aria-current="{{ d.current }}" onClick="{{ d.go }}" style="{{ dotBtnStyle }}"><span style="{{ d.dotStyle }}"></span></button></sc-for>
+        </div>
+      </sc-if>
+    </dialog>
+  </section>
 
   <div id="cuply" style="{{ case2Style }}" data-section="case2">
     <div style="{{ case2BgStyle }}"></div>
@@ -170,57 +320,57 @@
     <div style="{{ contentRowStyle }}">
       <div style="{{ leftColStyle }}">
         <div style="{{ bulletsStyle }}">
-          <div style="{{ bulletRowStyle1 }}"><div style="{{ bulletDotWrap }}"><div style="{{ bulletDot }}"></div></div><span style="{{ bulletTextStyle1 }}">Onlineshop von Grund auf mitaufgebaut &#8212; Mitgründerin 2020&#8211;2025</span></div>
+          <div style="{{ bulletRowStyle1 }}"><div style="{{ bulletDotWrap }}"><div style="{{ bulletDot }}"></div></div><span style="{{ bulletTextStyle1 }}">Onlineshop von Grund auf mitaufgebaut &#8211; Mitgründerin 2020&#8211;2025</span></div>
           <div style="{{ bulletRowStyle1 }}"><div style="{{ bulletDotWrap }}"><div style="{{ bulletDot }}"></div></div><span style="{{ bulletTextStyle1 }}">WordPress/WooCommerce, SEO und Conversion-Optimierung eigenständig umgesetzt</span></div>
           <div style="{{ bulletRowStyle1 }}"><div style="{{ bulletDotWrap }}"><div style="{{ bulletDot }}"></div></div><span style="{{ bulletTextStyle1 }}">Google Ads &amp; Meta Ads selbst gesteuert, neue Marketingkanäle getestet</span></div>
-          <div style="{{ bulletRowStyle1 }}"><div style="{{ bulletDotWrap }}"><div style="{{ bulletDot }}"></div></div><span style="{{ bulletTextStyle1 }}">Markenauftritt und Content komplett mitentwickelt &#8212; Foto, Video, Social Media</span></div>
+          <div style="{{ bulletRowStyle1 }}"><div style="{{ bulletDotWrap }}"><div style="{{ bulletDot }}"></div></div><span style="{{ bulletTextStyle1 }}">Markenauftritt und Content komplett mitentwickelt &#8211; Foto, Video, Social Media</span></div>
           <div style="{{ bulletRowStyle1 }}"><div style="{{ bulletDotWrap }}"><div style="{{ bulletDot }}"></div></div><span style="{{ bulletTextStyle1 }}">E&#8209;Commerce-Prozesse end-to-end verantwortet: Einkauf, Versand, Kundenkommunikation</span></div>
-        </div>
-        <!-- Optional QR card — delete this block (and its assets/qr-code.png reference) if Case 1 has no live site/link worth scanning to. -->
-        <div style="{{ qrCardStyle }}">
-          <img src="assets/qr-code.png" alt="QR-Code zu RoyalShrimp.de" style="{{ qrImgStyle }}" />
-          <span style="{{ scanLabelStyle }}">ZUM ÖFFNEN SCANNEN</span>
         </div>
       </div>
       <div style="{{ rightColStyle }}">
-        <!-- Optional video card — delete this <a> block if Case 1 has no walkthrough video. -->
-        <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" style="{{ videoCardStyle }}" data-name="video-card">
-          <div style-hover="{{ playHoverStyle }}" style="{{ playIconStyle }}" aria-label="Walkthrough abspielen">
-            <svg width="{{ playIconSvgSize }}" height="{{ playIconSvgSize }}" viewBox="0 0 24 24" fill="rgb(0,59,117)"><path d="M8 5v14l11-7z"></path></svg>
-          </div>
-          <span style="{{ videoLabelStyle }}">SHOP-WALKTHROUGH</span>
-          <span style="{{ videoSubLabelStyle }}">Zum Abspielen klicken – Stream über Google Drive.</span>
-        </a>
-        <div style="{{ buttonRowStyle }}">
-          <div style="{{ externalLinkCardStyle }}">
-            <span style="{{ linkLabelStyle }}">LINK ÖFFNEN &amp; KOPIEREN</span>
-            <div style="{{ urlRowStyle }}">
-              <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" style="{{ urlTextStyle }}">drive.google.com/file/d/1ZM4CWZ1CJGp…/view?usp=sharing</a>
-              <button style-hover="{{ copyHoverStyle }}" style="{{ copyIconStyle }}" onClick="{{ copyLink1 }}" aria-label="Link kopieren">{{ copyIcon1 }}</button>
+        <!-- Walkthrough showcase (layout from the EDTELLIGENT page): browser-framed preview + caption bar with one clear CTA -->
+        <figure style="{{ showcaseStyle }}">
+          <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" class="video-tile" aria-label="Shop-Walkthrough ansehen (öffnet extern in Google Drive)" style="{{ showcasePreviewStyle }}">
+            <div style="{{ showcaseBarStyle }}" aria-hidden="true"><span style="{{ showcaseDotStyle }}"></span><span style="{{ showcaseDotStyle }}"></span><span style="{{ showcaseDotStyle }}"></span></div>
+            <div style="{{ showcaseScreenStyle }}">
+              <span class="vt-play" style="{{ showcasePlayStyle }}" aria-hidden="true"><svg width="{{ playIconSvgSize }}" height="{{ playIconSvgSize }}" viewBox="0 0 24 24" fill="currentColor"><path d="M9 6.2v11.6l9.2-5.8z"></path></svg></span>
             </div>
-          </div>
-        </div>
+          </a>
+          <figcaption style="{{ showcaseCaptionStyle }}">
+            <div style="{{ showcaseCaptionTextStyle }}">
+              <span style="{{ showcaseLabelStyle }}">SHOP-WALKTHROUGH</span>
+              <span style="{{ showcaseCopyStyle }}">Kurzer Einblick in Aufbau, Struktur und Nutzerführung des Shops.</span>
+            </div>
+            <div style="{{ showcaseCtaColStyle }}">
+              <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" style-hover="{{ primaryBtnHoverStyle }}" style="{{ showcaseBtnStyle }}">Walkthrough ansehen</a>
+              <button type="button" class="util-link" style="{{ showcaseUtilStyle }}" onClick="{{ copyLink1 }}">{{ copyLabel1 }}</button>
+              <span style="{{ showcaseNoteStyle }}">Öffnet extern in Google Drive.</span>
+            </div>
+          </figcaption>
+        </figure>
       </div>
     </div>
   </div>
 
-  <div style="{{ footerStyle }}">
-    <div style="{{ footerDividerStyle }}"></div>
-    <div style="{{ footerMainRowStyle }}">
-      <div style="{{ footerMetaStyle }}">
-        <div style="{{ footerPairStyle }}">
-          <span style="{{ footerLabelStyle }}">Konzept, Inhalt &amp; Design</span>
-          <span style="{{ footerValueStyle }}">Svenja Mumelter · Figma</span>
-        </div>
-        <div style="{{ footerPairStyle }}">
-          <span style="{{ footerLabelStyle }}">Entwicklung</span>
-          <span style="{{ footerValueStyle }}">Claude Code · KI-gestützter Entwicklungsworkflow</span>
-        </div>
+  <!-- Footer: content from the EDTELLIGENT page, AkuRat look (blue gradient like the contact box, gold accents only) -->
+  <footer style="{{ footerStyle }}">
+    <div style="{{ footerGlowStyle }}" aria-hidden="true"></div>
+    <div style="{{ footerTopStyle }}">
+      <div style="{{ footerBrandStyle }}">
+        <span style="{{ footerWordmarkStyle }}">Svenja Mumelter<span style="{{ footerDotStyle }}">.</span></span>
+        <p style="{{ footerTaglineStyle }}">Konzept, Inhalt und Design aus einer Hand.</p>
+      </div>
+      <div style="{{ footerContactStyle }}">
+        <span style="{{ footerContactLabelStyle }}">KONTAKT</span>
+        <a href="mailto:svenja.mumelter@gmx.de" class="footer-link" style="{{ footerLinkStyle }}">svenja.mumelter@gmx.de</a>
+        <a href="tel:+4917681922033" class="footer-link" style="{{ footerLinkStyle }}">0176 81922033</a>
       </div>
     </div>
-    <p style="{{ footerNoteStyle }}">Diese Landingpage habe ich für meine Bewerbung als Growth Marketing Manager (SEO, Performance &amp; AI) bei AkuRat konzipiert und umgesetzt.</p>
-    <span style="{{ copyrightStyle }}">© 2026 Svenja Mumelter · München</span>
-  </div>
+    <div style="{{ footerBarStyle }}">
+      <span>© 2026 · Logos und Markennamen gehören den jeweiligen Inhabern.</span>
+      <span>Mit <svg width="13" height="13" viewBox="0 0 24 24" fill="#decd93" role="img" aria-label="Liebe" style="{{ footerHeartStyle }}"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.2 0 3.6 1.2 5.2 3 1.6-1.8 3-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"></path></svg> und Claude Code gebaut in München</span>
+    </div>
+  </footer>
 
 </div>
 
@@ -230,6 +380,7 @@ class Component extends DCLogic {
   state = {
     isMobile: typeof window !== "undefined" ? window.innerWidth <= 859 : false,
     copied1: false,
+    gallery: null, /* { k: project key, i: slide index } while the overlay is open */
   };
 
   componentDidMount() {
@@ -238,9 +389,33 @@ class Component extends DCLogic {
       if (m !== this.state.isMobile) this.setState({ isMobile: m });
     };
     window.addEventListener("resize", this._onResize);
+    /* gallery: arrow keys, swipe (one finger, page not pinch-zoomed), native close (Esc) syncs the state */
+    this._onKey = (e) => {
+      if (!this.state.gallery) return;
+      if (e.key === "ArrowLeft") { e.preventDefault(); this.prevSlide(); }
+      if (e.key === "ArrowRight") { e.preventDefault(); this.nextSlide(); }
+    };
+    document.addEventListener("keydown", this._onKey);
+    const dlg = document.getElementById("proj-dialog");
+    const stage = document.getElementById("proj-stage");
+    /* ignore a late "close" from an earlier session if the dialog is already open again */
+    this._onClose = () => { if (this.state.gallery && !(dlg && dlg.open)) this.setState({ gallery: null }); };
+    if (dlg) dlg.addEventListener("close", this._onClose);
+    this._onTouchStart = (e) => { this._tx = e.touches.length === 1 ? e.touches[0].clientX : null; };
+    this._onTouchEnd = (e) => {
+      if (this._tx == null || (window.visualViewport && window.visualViewport.scale > 1.05)) return;
+      const dx = e.changedTouches[0].clientX - this._tx;
+      this._tx = null;
+      if (Math.abs(dx) > 45) (dx < 0 ? this.nextSlide : this.prevSlide)();
+    };
+    if (stage) {
+      stage.addEventListener("touchstart", this._onTouchStart, { passive: true });
+      stage.addEventListener("touchend", this._onTouchEnd, { passive: true });
+    }
   }
   componentWillUnmount() {
     window.removeEventListener("resize", this._onResize);
+    document.removeEventListener("keydown", this._onKey);
   }
 
   copyLink1 = () => {
@@ -249,6 +424,120 @@ class Component extends DCLogic {
     this.setState({ copied1: true });
     clearTimeout(this._t1);
     this._t1 = setTimeout(() => this.setState({ copied1: false }), 1500);
+  };
+
+  /* project data for the AI section. Images: assets/projekte/<key>-<n>.webp, built by _quellen/bilder_einbauen.py.
+     frame = "phone" (smartphone frame), "browser" (browser frame) or "plain" (square image, no frame).
+     ready: false = card shows text only (no preview, not clickable) until the real screenshots are in */
+  projects = {
+    ausgaben: {
+      ready: true,
+      preview: 3, /* card preview = the form screenshot, gallery still starts at 1 */
+      title: "Ausgaben-App mit AI-Bon-Erfassung",
+      oneliner: "Vom Kassenbon zur Ausgabe, automatisch.",
+      bullets: [
+        "REWE schickt den Kassenbon per E-Mail.",
+        "n8n auf unserem Pi liest ihn mit AI aus.",
+        "Artikel und Beträge landen in unserer App.",
+      ],
+      slides: [
+        { frame: "phone", caption: "Übersicht mit den letzten Buchungen, der REWE-Einkauf kam automatisch über den Kassenbon.",
+          alt: "Ausgaben-App, Startseite: Saldo und Liste der letzten Buchungen, oben ein REWE-Einkauf." },
+        { frame: "browser", caption: "Der n8n-Workflow: Bon-Mail abholen, PDF auslesen, Ausgabe anlegen und per Telegram Bescheid geben.",
+          alt: "n8n-Workflow: Outlook-Trigger, Mail abrufen, PDF-Text extrahieren, REWE-Bon auslesen, Ausgabe anlegen, Prüfung mit Erfolgs- und Fehlermeldung per Telegram." },
+        { frame: "phone", caption: "Ausgaben lassen sich auch von Hand erfassen, mit Aufteilung, wer bezahlt hat und für wen.",
+          alt: "Ausgaben-App, Formular „Neue Ausgabe“ mit Beschreibung, Betrag, Datum, bezahlt von und für." },
+        { frame: "plain", caption: "Als eigene App auf dem Homescreen.",
+          alt: "App-Icon „Ausgaben“: grünes Geldbündel mit Euro-Zeichen." },
+      ],
+    },
+    wander: {
+      ready: true,
+      title: "Wander- und Reise-App",
+      oneliner: "Touren und Reisen festhalten und teilen.",
+      bullets: [
+        "Route aus GPX-Datei direkt auf der Karte.",
+        "Fotos landen automatisch bei der Tour.",
+        "Teilen per Link, mit Ablauf und Passwort.",
+      ],
+      slides: [
+        { frame: "phone", caption: "Tourenübersicht mit Fotos, Schwierigkeit, Strecke, Höhenmetern und Gehzeit.",
+          alt: "Wander-App, Tourenliste: Isarwanderung Höllriegelskreuth – Schäftlarn mit Foto, 13,2 km, 183 hm, 4:52 h." },
+        { frame: "phone", caption: "Die Route aus der GPX-Datei auf der Karte, darunter das Höhenprofil.",
+          alt: "Wander-App, Karte mit rot eingezeichneter Rundtour in Südtirol und Höhenprofil darunter." },
+        { frame: "phone", caption: "Jede Tour bekommt eine eigene Seite mit Titelbild, Beschreibung und Kennzahlen.",
+          alt: "Wander-App, Tourseite „Hammerwand und Bärenfalle“ mit Bergfoto, Beschreibung, Strecke und Aufstieg." },
+        { frame: "phone", caption: "Teilen per Link, mit Passwort und frei wählbarer Gültigkeit.",
+          alt: "Wander-App, Dialog „Teilen“ mit Passwortfeld und Gültigkeit von 7, 30 oder 90 Tagen." },
+      ],
+    },
+    fitness: {
+      ready: true,
+      title: "Fitness-App mit AI-Steuerung",
+      oneliner: "Training und Ernährung, gesteuert per Chat.",
+      bullets: [
+        "Mahlzeit per Chat, MCP trägt Kalorien ein.",
+        "Trainingsplan zeigt, wann ich steigern kann.",
+        "Gewichtsverlauf als Kurve über Monate.",
+      ],
+      slides: [
+        { frame: "phone", caption: "Startseite mit dem heutigen Training, Wochenziel und Hinweisen wie einer empfohlenen Deload-Woche.",
+          alt: "Fitness-App, Startseite „Servus, Svenja“ mit dem heutigen Ganzkörpertraining und dem Button „Training starten“." },
+        { frame: "phone", caption: "Im Training: Gewicht und Wiederholungen pro Satz, die App zeigt, wann ich steigern kann.",
+          alt: "Fitness-App während des Trainings: Übung Chest-Supported Row mit Sätzen, Gewicht, Wiederholungen und Pausen-Timer." },
+        { frame: "phone", caption: "Kalorienbedarf und Ziel, berechnet aus Alltag und Training.",
+          alt: "Fitness-App, Kalorien: Gesamtumsatz, Ziel „Halten“ und Protein-Empfehlung." },
+        { frame: "phone", caption: "Statistik: Sätze pro Woche und Verteilung nach Muskelgruppe.",
+          alt: "Fitness-App, Statistik mit Balkendiagramm der Sätze pro Woche und Ringdiagramm nach Muskelgruppe." },
+      ],
+    },
+    keyboard: {
+      title: "Keyboard",
+      slides: [
+        { frame: "browser", caption: "Übungsansicht mit Split-Keyboard: Neue Buchstaben kommen erst dazu, wenn die bisherigen sitzen.",
+          alt: "Keyboard-Trainer, Übungsansicht: Textzeile zum Abtippen über einer eingeblendeten geteilten Tastatur, der aktuelle Buchstabe ist hervorgehoben." },
+        { frame: "browser", caption: "Claude analysiert die bisherigen Läufe und stellt daraus die Einheit des Tages zusammen.",
+          alt: "Keyboard-Trainer, Ansicht „Die Einheit“: drei nummerierte Übungsblöcke mit Begründung und Ziel, darunter „Wohin das führt“." },
+      ],
+    },
+    orbit: {
+      title: "Orbit",
+      slides: [
+        { frame: "browser", src: "assets/projekte/orbit-1.webp",
+          alt: "Screenshot von Orbit: Kanban-Board mit den Spalten Themenspeicher, To-do, In Arbeit, Review und Erledigt, jede Karte mit Fälligkeit, Checkliste und Kategorie.",
+          caption: "Projekt „Spaceship“ in Orbit: alle Aufgaben für mein Alltags-Dashboard, vom Themenspeicher bis Erledigt, jede Karte mit Fälligkeit, Checkliste und Kategorie." },
+      ],
+    },
+  };
+  slidesOf = (k) => {
+    const pr = this.projects[k];
+    return pr.slides.map((sl, i) => Object.assign({
+      src: "assets/projekte/" + k + "-" + (i + 1) + ".webp",
+      alt: pr.title + ", Screenshot " + (i + 1) + " von " + pr.slides.length,
+    }, sl));
+  };
+
+  openGallery = (k) => {
+    this.setState({ gallery: { k: k, i: 0 } });
+    const d = document.getElementById("proj-dialog");
+    if (d && d.showModal && !d.open) d.showModal();
+  };
+  closeGallery = () => {
+    const d = document.getElementById("proj-dialog");
+    if (d && d.open) d.close();
+    this.setState({ gallery: null });
+  };
+  stepSlide = (dir) => {
+    const g = this.state.gallery;
+    if (!g) return;
+    const n = this.projects[g.k].slides.length;
+    this.setState({ gallery: { k: g.k, i: (g.i + dir + n) % n } });
+  };
+  prevSlide = () => this.stepSlide(-1);
+  nextSlide = () => this.stepSlide(1);
+  /* a click on the dimmed area (= the dialog element itself, outside its content) closes it */
+  onDialogBackdrop = (e) => {
+    if (e && e.target === e.currentTarget) this.closeGallery();
   };
 
   renderVals() {
@@ -272,9 +561,71 @@ class Component extends DCLogic {
     const accentLine = "rgba(222,205,147,0.9)"; /* keep in sync with --accent-gold above */
     const paperA = (a) => "rgba(253,253,250," + a + ")";
 
+    /* ---- AI section data ---- */
+    const stageH = m ? "min(62vh, 560px)" : "min(68vh, 740px)";
+    /* card preview: the screenshot "peeks" in from below on a soft blue-grey tint (phone centred, landscape offset right) */
+    const previewPeek = (frame) => frame === "phone"
+      ? { position: "absolute", top: 22, left: "50%", transform: "translateX(-50%)", width: "50%", height: "auto", display: "block",
+          borderRadius: "12px 12px 0 0", border: "1px solid " + border, borderBottom: 0 }
+      : { position: "absolute", top: 22, left: 24, width: "calc(100% - 24px)", height: "calc(100% - 22px)", display: "block",
+          objectFit: "cover", objectPosition: "left top", borderRadius: "8px 0 0 0", border: "1px solid " + border, borderRight: 0, borderBottom: 0 };
+    const bigProjects = ["fitness", "wander", "ausgaben"].map((k) => {
+      const pr = this.projects[k];
+      return {
+        key: k, title: pr.title, oneliner: pr.oneliner, bullets: pr.bullets,
+        preview: "assets/projekte/" + k + "-" + (pr.preview || 1) + ".webp", previewImgStyle: previewPeek(pr.slides[(pr.preview || 1) - 1].frame),
+        open: () => this.openGallery(k),
+      };
+    });
+    /* Orbit + Keyboard: same card build, landscape preview centred with an even margin */
+    const duoInset = m ? 16 : 22;
+    const duoPeek = { position: "absolute", top: duoInset, left: duoInset, width: "calc(100% - " + 2 * duoInset + "px)", height: "calc(100% - " + 2 * duoInset + "px)",
+      display: "block", boxSizing: "border-box", objectFit: "cover", objectPosition: "left top", borderRadius: 8, border: "1px solid " + border };
+    const duoProjects = [
+      { title: "Orbit", preview: "assets/projekte/orbit-1.webp", hint: "SCREENSHOT ANSEHEN", open: () => this.openGallery("orbit"),
+        p1: "Selbst gebautes Projektmanagement-Tool, per MCP mit Claude verbunden.",
+        p2: "Der Screenshot zeigt mein aktuelles Projekt „Spaceship“: ein Alltags-Dashboard, das Aufgaben, Kalender und Finanzen an einem Ort bündeln soll." },
+      { title: "Keyboard", preview: "assets/projekte/keyboard-1.webp", hint: "SCREENSHOTS ANSEHEN", open: () => this.openGallery("keyboard"),
+        p1: "Eigener 10-Finger-Trainer für mein Split-Keyboard, mit Claude als Coach.",
+        p2: "Claude wertet Fehlerquoten und Tempo je Finger aus und stellt daraus jeden Tag die passende Einheit mit Begründung und Ziel zusammen." },
+    ].map((q) => Object.assign(q, { previewImgStyle: duoPeek }));
+    const moreProjects = [
+      ["Zeiterfassung per MCP", "Eigener MCP-Server für Toggl: per Sprache in Codex erfasst, Kalender inklusive."],
+      ["Paperless mit AI", "Dokumentenmanagement auf dem Pi, AI benennt und verschlagwortet Dokumente automatisch."],
+      ["Lern-App zur Prüfungsvorbereitung", "Alle Unterlagen meiner Weiterbildungsmodule in einer eigenen App zum Lernen."],
+      ["Smart-Home-Automationen", "Licht, Musik und Saugroboter laufen automatisch, die Lichtfarbe ändere ich per Claude."],
+    ].map(([t, x]) => ({ title: t, text: x }));
+    /* overlay */
+    const g = this.state.gallery;
+    const gSlides = g ? this.slidesOf(g.k) : [];
+    const cur = g ? gSlides[g.i] : null;
+    const slide = cur ? {
+      src: cur.src, alt: cur.alt, caption: cur.caption, isBrowser: cur.frame === "browser",
+      frameStyle: cur.frame === "plain"
+        ? { display: "block", maxWidth: "100%" }
+        : cur.frame === "phone"
+        ? { display: "block", padding: m ? 6 : 8, borderRadius: m ? 30 : 38, backgroundColor: "#021d3a", border: "1px solid rgba(255,255,255,0.22)", maxWidth: "100%" }
+        : { display: "block", borderRadius: 10, overflow: "hidden", backgroundColor: "#f3f6fa", border: "1px solid rgba(255,255,255,0.22)", maxWidth: "100%" },
+      imgStyle: cur.frame === "plain"
+        ? { display: "block", width: "auto", height: "auto", maxWidth: "100%", maxHeight: "calc(" + stageH + " - 40px)", borderRadius: 22 }
+        : cur.frame === "phone"
+        ? { display: "block", height: "calc(" + stageH + " - " + (m ? 14 : 18) + "px)", width: "auto", maxWidth: "100%", borderRadius: m ? 24 : 30 }
+        : { display: "block", width: "auto", height: "auto", maxWidth: "100%", maxHeight: "calc(" + stageH + " - 32px)" },
+    } : { src: "", alt: "", caption: "", isBrowser: false, frameStyle: {}, imgStyle: {} };
+    const dots = gSlides.map((sl, i) => ({
+      label: "Bild " + (i + 1) + " von " + gSlides.length, current: i === g.i ? "true" : "false",
+      go: () => this.setState({ gallery: { k: g.k, i: i } }),
+      dotStyle: { display: "block", width: 9, height: 9, borderRadius: 999, backgroundColor: i === g.i ? accent : "rgba(255,255,255,0.38)" },
+    }));
+
     return {
+      bigProjects: bigProjects, duoProjects: duoProjects, moreProjects: moreProjects, slide: slide, dots: dots,
+      dlgOpen: !!g, dlgMulti: gSlides.length > 1,
+      dlgTitle: g ? this.projects[g.k].title : "", dlgCount: gSlides.length > 1 ? (g.i + 1) + " / " + gSlides.length : "",
+      closeGallery: this.closeGallery, onDialogBackdrop: this.onDialogBackdrop, prevSlide: this.prevSlide, nextSlide: this.nextSlide,
       notMobile: !m,
       copyIcon1: this.state.copied1 ? "✓" : "⧉",
+      copyLabel1: this.state.copied1 ? "Link kopiert ✓" : "Link kopieren",
       copyLink1: this.copyLink1,
 
       pageStyle: {
@@ -373,7 +724,7 @@ class Component extends DCLogic {
         position: "relative", zIndex: 1,
         backgroundColor: m ? paper : "transparent",
         display: "flex", flexDirection: "column", gap: m ? 28 : 40,
-        padding: m ? "16px 24px 8px 24px" : "40px 72px 8px 72px",
+        padding: m ? "16px 24px 56px 24px" : "40px 72px 96px 72px", /* air between the contact box and the skills band */
         alignItems: "flex-start",
       },
       plan90HeadStyle: {
@@ -387,7 +738,7 @@ class Component extends DCLogic {
         color: bodyText, margin: 0, maxWidth: 940, textWrap: "balance", textIndent: "-0.45em",
       },
       plan90PortraitStyle: {
-        width: m ? 96 : 120, height: m ? 96 : 120, flexShrink: 0,
+        width: m ? 120 : 168, height: m ? 120 : 168, flexShrink: 0, /* larger portrait (was 96 / 120px) */
         borderRadius: "50%", objectFit: "cover", display: "block", marginLeft: 5, marginTop: m ? 5 : 0,
         boxShadow: "0 0 0 3px " + paper + ", 0 0 0 4.5px " + accent + ", 0 10px 28px rgba(0,59,117,0.12)",
       },
@@ -406,26 +757,27 @@ class Component extends DCLogic {
         color: bodyText, margin: m ? "-8px 0 -8px 0" : "-16px 0 -8px 0", maxWidth: 1200,
         borderLeft: "3px solid " + accent, paddingLeft: m ? 14 : 20,
       },
+      ctaBandStyle: { position: "relative", backgroundColor: paper, padding: m ? "48px 24px 40px 24px" : "96px 72px 56px 72px" }, /* bottom padding keeps the box shadow inside this section */
       ctaStyle: {
         display: "flex", flexDirection: m ? "column" : "row",
         alignItems: m ? "stretch" : "center", justifyContent: "space-between",
         gap: m ? 16 : 32, width: "100%", boxSizing: "border-box",
-        padding: m ? "20px 18px" : "24px 28px",
-        borderRadius: 12,
+        padding: m ? "28px 22px" : "44px 48px", /* bigger stand-alone block */
+        borderRadius: 16,
         backgroundColor: "var(--ink-900)",
         backgroundImage: "radial-gradient(120% 140% at 100% 0%, rgba(222,205,147,0.16) 0%, rgba(222,205,147,0) 45%), linear-gradient(135deg, #003b75 0%, #0a4f94 100%)",
-        boxShadow: "0 10px 24px -16px rgba(0,59,117,0.5)",
+        boxShadow: "none", /* flat, no shadow */
       },
       ctaTextWrapStyle: {
-        display: "flex", flexDirection: "column", gap: 8, minWidth: 0,
+        display: "flex", flexDirection: "column", gap: m ? 10 : 14, minWidth: 0,
       },
       ctaLabelStyle: {
         fontFamily: mono, fontWeight: 400, fontSize: "var(--fs-label)",
         letterSpacing: lsWide, lineHeight: 1.2, color: accent, margin: 0,
       },
       ctaTextStyle: {
-        fontFamily: archivo, fontWeight: 600,
-        fontSize: m ? 17 : "var(--fs-hero-lead)", lineHeight: 1.45,
+        fontFamily: archivoNarrow, fontWeight: 700,
+        fontSize: m ? 20 : 27, letterSpacing: ls, lineHeight: 1.3,
         color: "var(--white)", margin: 0, maxWidth: 760, textWrap: "balance",
       },
       ctaLinksStyle: {
@@ -476,6 +828,102 @@ class Component extends DCLogic {
         fontSize: m ? 15 : "var(--fs-body)", lineHeight: 1.6,
         color: muted, margin: m ? "-8px 0 0 0" : "-12px 0 0 0", maxWidth: 1200, textWrap: "balance",
         borderLeft: "3px solid " + accent, paddingLeft: m ? 14 : 20,
+      },
+      /* ===== AI projects band: quiet mirrored architecture background, generous white space ===== */
+      aiBandStyle: {
+        position: "relative", overflow: "hidden", backgroundColor: paper,
+        padding: m ? "24px 24px 72px 24px" : "56px 72px 112px 72px", /* + 56px below the contact box = 112px */
+      },
+      /* AI band: plain paper background (no photo) */
+      aiInnerStyle: { position: "relative", zIndex: 1, display: "flex", flexDirection: "column", gap: m ? 20 : 28, width: "100%" },
+      aiLeadStyle: {
+        fontFamily: archivo, fontWeight: 500, fontSize: m ? 16 : "var(--fs-hero-lead)", lineHeight: 1.5,
+        color: bodyText, margin: m ? "-4px 0 12px 0" : "-8px 0 24px 0", maxWidth: 1200,
+        borderLeft: "3px solid " + accent, paddingLeft: m ? 14 : 20,
+      },
+      /* cards: same paper + gold hairline as the 90-day and skills cards */
+      projGridStyle: m
+        ? { listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 16 }
+        : { listStyle: "none", margin: 0, padding: 0, display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 24 },
+      duoGridStyle: m
+        ? { listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 16 }
+        : { listStyle: "none", margin: 0, padding: 0, display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 24 },
+      projCardStyle: {
+        position: "relative", display: "flex", flexDirection: "column", minWidth: 0, overflow: "hidden", cursor: "pointer",
+        borderRadius: 12, backgroundColor: paperA(0.86), border: "1px solid " + accentLine, /* gold hairline (a real border, so the preview image can't cover it) */
+      },
+      projPreviewStyle: { position: "relative", aspectRatio: "16 / 10", overflow: "hidden", backgroundColor: sunken, borderBottom: "1px solid " + accentLine },
+      duoPreviewStyle: { position: "relative", aspectRatio: "16 / 9", overflow: "hidden", backgroundColor: sunken, borderBottom: "1px solid " + accentLine },
+      projBodyStyle: { display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 12, flex: 1, padding: m ? "20px 20px 24px 20px" : "24px 26px 28px 26px" },
+      projTitleStyle: { fontFamily: archivoNarrow, fontWeight: 700, fontSize: "var(--fs-case-sub)", letterSpacing: ls, lineHeight: 1.2, color: strong, margin: 0 },
+      projOneLinerStyle: { fontFamily: archivo, fontWeight: 600, fontSize: "var(--fs-body)", lineHeight: 1.45, color: bodyText, margin: 0 },
+      projBulletsStyle: { listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 8 },
+      projBulletStyle: { position: "relative", paddingLeft: 18, fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-caption)", lineHeight: 1.55, color: bodyText },
+      duoNoteStyle: { fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-caption)", lineHeight: 1.6, color: muted, margin: 0 },
+      cardStretchBtnStyle: {
+        appearance: "none", background: "none", border: 0, padding: 0, margin: 0,
+        font: "inherit", color: "inherit", letterSpacing: "inherit", textAlign: "left", cursor: "pointer",
+      },
+      /* link line in the page's mono label style */
+      aiHintStyle: { marginTop: "auto", paddingTop: 8, fontFamily: mono, fontWeight: 700, fontSize: "var(--fs-label)", letterSpacing: lsWide, lineHeight: 1.2, color: accentText },
+      /* "Außerdem gebaut": quieter tiles without an outline (blue-grey fill), so the gold stays with the main cards */
+      /* one gold frame around the whole group (not around each tile), so it clearly belongs to the AI projects */
+      moreWrapStyle: {
+        display: "flex", flexDirection: "column", gap: m ? 14 : 18, marginTop: m ? 8 : 4,
+        padding: m ? "20px 18px 20px 18px" : "26px 28px 28px 28px",
+        borderRadius: 12, backgroundColor: paperA(0.86), border: "1px solid " + accentLine,
+      },
+      moreHeadStyle: { fontFamily: mono, fontWeight: 400, fontSize: "var(--fs-label)", letterSpacing: lsWide, lineHeight: 1.2, color: accentText, margin: 0 },
+      moreGridStyle: m
+        ? { listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 12 }
+        : { listStyle: "none", margin: 0, padding: 0, display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gridAutoRows: "1fr", gap: 24 },
+      moreTileStyle: { display: "flex", flexDirection: "column", gap: 6, minWidth: 0, borderRadius: 12, backgroundColor: sunken, padding: m ? "18px 20px 20px 20px" : "20px 24px 22px 24px" }, /* soft blue-grey surface, no outline */
+      moreTitleStyle: { fontFamily: archivoNarrow, fontWeight: 700, fontSize: "var(--fs-body)", letterSpacing: ls, lineHeight: 1.3, color: strong, margin: 0 },
+      moreTextStyle: { fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-caption)", lineHeight: 1.55, color: bodyText, margin: 0 },
+      /* overlay: AkuRat blue frame; the stage keeps one fixed height so arrows never jump */
+      dlgStyle: {
+        width: m ? "calc(100vw - 16px)" : "min(1240px, calc(100vw - 96px))", maxWidth: "none", maxHeight: "calc(100vh - 24px)",
+        padding: m ? "0 0 14px 0" : "0 0 22px 0", border: 0, borderRadius: m ? 14 : 16, backgroundColor: "var(--ink-900)", color: "#ffffff", overflow: "auto",
+      },
+      dlgBarStyle: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, padding: m ? "10px 10px 6px 18px" : "14px 14px 8px 26px" },
+      dlgTitleStyle: { fontFamily: archivo, fontWeight: 700, fontSize: m ? 15 : 16, lineHeight: 1.4, color: "#ffffff", margin: 0 },
+      dlgCountStyle: { fontFamily: mono, fontWeight: 400, fontSize: 13, color: "#c9d6e6", marginLeft: 8 },
+      dlgCloseStyle: {
+        display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+        width: 40, height: 40, borderRadius: 999, border: 0, cursor: "pointer", backgroundColor: "rgba(255,255,255,0.12)", color: "#ffffff",
+      },
+      dlgStageStyle: { display: "flex", alignItems: "center", gap: m ? 6 : 16, padding: m ? "4px 8px" : "6px 22px", height: stageH, boxSizing: "content-box" },
+      dlgFrameAreaStyle: { flex: 1, minWidth: 0, height: "100%", display: "flex", alignItems: "center", justifyContent: "center" },
+      dlgArrowStyle: {
+        display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+        width: m ? 36 : 46, height: m ? 36 : 46, borderRadius: 999, border: 0, cursor: "pointer", backgroundColor: "rgba(255,255,255,0.12)", color: "#ffffff",
+      },
+      browserBarStyle: { display: "flex", alignItems: "center", gap: 6, height: 30, padding: "0 12px", backgroundColor: "#e3e9f1" },
+      browserDotStyle: { display: "block", width: 9, height: 9, borderRadius: 999, backgroundColor: "#c3cdd9" },
+      dlgCaptionStyle: { fontFamily: archivo, fontWeight: 400, fontSize: m ? 14 : 15, lineHeight: 1.5, color: "#dbe4ef", textAlign: "center", margin: m ? "12px 18px 0 18px" : "16px auto 0 auto", maxWidth: 760, minHeight: "1.5em" },
+      dotsStyle: { display: "flex", justifyContent: "center", gap: 2, marginTop: m ? 6 : 8 },
+      dotBtnStyle: { display: "inline-flex", alignItems: "center", justifyContent: "center", width: 28, height: 28, padding: 0, border: 0, borderRadius: 999, backgroundColor: "transparent", cursor: "pointer" },
+
+      /* Skills und Tools (content from the EDTELLIGENT page), styled like the 90-day cards: paper cards with the gold hairline, 2 x 4 grid */
+      skillsBandStyle: {
+        position: "relative", backgroundColor: sunken,
+        padding: m ? "56px 24px 64px 24px" : "96px 72px 104px 72px",
+      },
+      skillsWrapStyle: { display: "flex", flexDirection: "column", gap: m ? 20 : 28, width: "100%" },
+      skillsGridStyle: m
+        ? { display: "flex", flexDirection: "column", gap: 16, width: "100%" }
+        : { display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 24, width: "100%" },
+      /* below the 90-day plan no outlines: cards are soft blue-grey surfaces, separated by colour and space only */
+      skillsCardStyle: {
+        minWidth: 0, display: "flex", flexDirection: "column", gap: 14,
+        padding: m ? "20px 20px 22px 20px" : "26px 28px 28px 28px",
+        borderRadius: 12, backgroundColor: "var(--white)", /* white cards on the blue-grey band, no outline */
+      },
+      skillsChipsStyle: { listStyle: "none", margin: 0, padding: 0, display: "flex", flexWrap: "wrap", gap: 8 },
+      /* blue-grey pills on the white card, no outline */
+      skillsChipStyle: {
+        fontFamily: archivo, fontWeight: 500, fontSize: m ? 13 : 14, lineHeight: 1.3, color: strong,
+        backgroundColor: sunken, borderRadius: 999, padding: "7px 13px",
       },
       plan90GridStyle: {
         display: "flex", flexDirection: m ? "column" : "row",
@@ -543,8 +991,8 @@ class Component extends DCLogic {
         display: "flex", flexDirection: "column", gap: 28,
         alignItems: "flex-start", width: "100%",
       } : {
-        display: "grid", gridTemplateColumns: "424px 1fr",
-        columnGap: 24, rowGap: 24, alignItems: "stretch", width: "100%",
+        display: "grid", gridTemplateColumns: "minmax(0, 5fr) minmax(0, 7fr)", /* balanced text / video proportions */
+        columnGap: 48, rowGap: 24, alignItems: "stretch", width: "100%",
       },
       leftColStyle: m ? {
         display: "flex", flexDirection: "column",
@@ -552,8 +1000,9 @@ class Component extends DCLogic {
       } : { display: "contents" },
       bulletsStyle: {
         gridColumn: 1, gridRow: 1,
+        alignSelf: "center", /* vertically centred on the whole walkthrough card (image + caption bar) */
         display: "flex", flexDirection: "column",
-        gap: m ? 16 : 18,
+        gap: m ? 16 : 26,
         alignItems: "flex-start",
         width: "100%",
       },
@@ -562,7 +1011,7 @@ class Component extends DCLogic {
       bulletDot: { width: 6, height: 6, borderRadius: "50%", backgroundColor: accent },
       bulletTextStyle1: {
         fontFamily: archivo, fontWeight: 400,
-        fontSize: "var(--fs-bullet)",
+        fontSize: m ? "var(--fs-bullet)" : 18,
         lineHeight: 1.6, color: bodyText, flexGrow: 1, margin: 0,
       },
       qrCardStyle: {
@@ -583,6 +1032,43 @@ class Component extends DCLogic {
         display: "flex", flexDirection: "column", gap: 16,
         alignItems: "flex-start", width: "100%",
       } : { display: "contents" },
+      /* RoyalShrimp walkthrough showcase: paper card with the gold hairline, browser bar, blue play button, caption bar on blue-grey */
+      showcaseStyle: m
+        ? { margin: 0, width: "100%", display: "flex", flexDirection: "column", borderRadius: 12, overflow: "hidden", border: "1px solid " + accentLine, backgroundColor: "var(--white)" }
+        : { gridColumn: 2, gridRow: 1, margin: 0, display: "flex", flexDirection: "column", minWidth: 0, borderRadius: 12, overflow: "hidden", border: "1px solid " + accentLine, backgroundColor: "var(--white)" },
+      showcasePreviewStyle: { display: "flex", flexDirection: "column", textDecoration: "none", color: "inherit", cursor: "pointer" },
+      showcaseBarStyle: { display: "flex", alignItems: "center", gap: 6, height: m ? 26 : 32, padding: "0 14px", backgroundColor: sunken, borderBottom: "1px solid " + border },
+      showcaseDotStyle: { display: "block", width: 8, height: 8, borderRadius: 999, backgroundColor: "#c5d0de" },
+      showcaseScreenStyle: {
+        position: "relative", aspectRatio: "16 / 9", display: "flex", alignItems: "center", justifyContent: "center",
+        backgroundImage: "url(assets/video-thumb-royalshrimp-akurat-2.jpg)", backgroundSize: "cover", backgroundPosition: "center",
+      },
+      showcasePlayStyle: {
+        display: "inline-flex", alignItems: "center", justifyContent: "center",
+        width: m ? 64 : 92, height: m ? 64 : 92, borderRadius: 999,
+        backgroundColor: "var(--ink-900)", color: "var(--white)",
+        boxShadow: "0 0 0 6px rgba(222,205,147,0.35), 0 14px 30px -12px rgba(0,59,117,0.55)",
+      },
+      showcaseCaptionStyle: {
+        display: "flex", flexDirection: m ? "column" : "row", alignItems: m ? "flex-start" : "center", justifyContent: "space-between",
+        gap: m ? 16 : 24, padding: m ? "18px 18px 20px 18px" : "22px 26px 24px 26px", backgroundColor: sunken, borderTop: "1px solid " + border,
+      },
+      showcaseCaptionTextStyle: { display: "flex", flexDirection: "column", gap: 6, minWidth: 0 },
+      showcaseLabelStyle: { fontFamily: mono, fontWeight: 400, fontSize: "var(--fs-label)", letterSpacing: lsWide, lineHeight: 1.2, color: accentText },
+      showcaseCopyStyle: { fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-body)", lineHeight: 1.5, color: bodyText },
+      showcaseCtaColStyle: { display: "flex", flexDirection: "column", alignItems: m ? "flex-start" : "center", gap: 8, flexShrink: 0 },
+      showcaseBtnStyle: {
+        display: "flex", alignItems: "center", justifyContent: "center",
+        height: 44, padding: "0 26px", borderRadius: 8, backgroundColor: accent, color: "var(--text-on-accent)",
+        fontFamily: archivo, fontWeight: 700, fontSize: "var(--fs-button)", letterSpacing: "0.06em", textTransform: "uppercase",
+        textDecoration: "none", whiteSpace: "nowrap", boxSizing: "border-box",
+      },
+      showcaseUtilStyle: {
+        appearance: "none", background: "none", border: 0, padding: 0, cursor: "pointer",
+        fontFamily: archivo, fontWeight: 600, fontSize: "var(--fs-caption)", color: strong,
+        textDecoration: "underline", textDecorationColor: accent, textDecorationThickness: 2, textUnderlineOffset: 4,
+      },
+      showcaseNoteStyle: { fontFamily: archivo, fontWeight: 400, fontSize: 13, lineHeight: 1.4, color: muted },
       videoCardStyle: {
         gridColumn: 2, gridRow: 1, boxSizing: "border-box",
         position: "relative",
@@ -719,34 +1205,39 @@ class Component extends DCLogic {
       },
       primaryBtnHoverStyle: { backgroundColor: "var(--ink-900)", color: "var(--white)" },
 
+      /* Footer in AkuRat blue: same gradient and gold glow as the contact box, rounded top; text white, gold only for dot, heart and label */
       footerStyle: {
-        backgroundColor: paper,
-        display: "flex", flexDirection: "column", gap: m ? 28 : 36,
-        padding: m ? "48px 24px 40px 24px" : "64px 72px 56px 72px",
+        position: "relative", overflow: "hidden",
+        margin: m ? "48px 12px 0 12px" : "88px 32px 0 32px",
+        padding: m ? "40px 12px 24px 12px" : "64px 40px 32px 40px", /* 32 + 40 = 72px: text aligns with the page content edge */
+        borderRadius: m ? "18px 18px 0 0" : "24px 24px 0 0",
+        backgroundColor: "var(--ink-900)",
+        backgroundImage: "linear-gradient(135deg, #003b75 0%, #0a4f94 100%)",
+        color: "var(--white)",
+        display: "flex", flexDirection: "column", gap: m ? 32 : 56,
       },
-      footerDividerStyle: { height: 1, backgroundColor: border, width: "100%" },
-      footerMainRowStyle: {
-        display: "flex", flexDirection: m ? "column" : "row",
-        gap: m ? 20 : 48, alignItems: "flex-start", width: "100%",
+      footerGlowStyle: {
+        position: "absolute", inset: 0, pointerEvents: "none",
+        background: "radial-gradient(70% 120% at 100% 0%, rgba(222,205,147,0.20) 0%, rgba(222,205,147,0) 55%)",
       },
-      footerParaStyle: {
-        fontFamily: archivo, fontWeight: 400,
-        fontSize: "var(--fs-body)", lineHeight: m ? 1.5 : "22px",
-        color: muted, flexGrow: 1, margin: 0,
+      footerTopStyle: {
+        position: "relative", display: "flex", flexDirection: m ? "column" : "row",
+        justifyContent: "space-between", alignItems: "flex-start", gap: m ? 28 : 40,
       },
-      footerMetaStyle: {
-        display: "flex", flexDirection: m ? "column" : "row", gap: m ? 22 : 88,
-        justifyContent: "flex-start", width: "100%", flexShrink: 0,
+      footerBrandStyle: { display: "flex", flexDirection: "column", gap: m ? 10 : 14 },
+      footerWordmarkStyle: { fontFamily: archivoNarrow, fontWeight: 700, fontSize: m ? 26 : 32, letterSpacing: ls, lineHeight: 1.1, color: "var(--white)" },
+      footerDotStyle: { color: accent },
+      footerTaglineStyle: { fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-body)", lineHeight: 1.5, color: "#d6e1ee", margin: 0 },
+      footerContactStyle: { display: "flex", flexDirection: "column", alignItems: m ? "flex-start" : "flex-end", gap: m ? 8 : 10 },
+      footerContactLabelStyle: { fontFamily: mono, fontWeight: 400, fontSize: "var(--fs-label)", letterSpacing: lsWide, lineHeight: 1.2, color: accent, marginBottom: 4 },
+      footerLinkStyle: { fontFamily: archivo, fontWeight: 500, fontSize: "var(--fs-body)", lineHeight: 1.4, color: "var(--white)", textDecoration: "none" },
+      footerBarStyle: {
+        position: "relative", display: "flex", flexDirection: m ? "column" : "row",
+        justifyContent: "space-between", gap: m ? 10 : 24,
+        paddingTop: m ? 18 : 22, borderTop: "1px solid rgba(255,255,255,0.18)",
+        fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-caption)", lineHeight: 1.5, color: "#d6e1ee",
       },
-      footerNoteStyle: {
-        fontFamily: archivo, fontWeight: 400,
-        fontSize: m ? 12 : "clamp(11.5px, calc((100vw - 150px) / 68), var(--fs-caption))", lineHeight: 1.5,
-        color: muted, margin: 0, whiteSpace: "normal",
-      },
-      footerPairStyle: { display: "flex", flexDirection: "column", gap: m ? 6 : 8 },
-      footerLabelStyle: { fontFamily: mono, fontWeight: 400, fontSize: "var(--fs-label)", letterSpacing: lsWide, textTransform: "uppercase", lineHeight: 1.2, color: muted, margin: 0 },
-      footerValueStyle: { fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-caption)", letterSpacing: ls, color: bodyText, margin: 0 },
-      copyrightStyle: { fontFamily: mono, fontWeight: 400, fontSize: "var(--fs-caption)", color: muted, marginTop: m ? -14 : -20 },
+      footerHeartStyle: { display: "inline-block", verticalAlign: "-1px", margin: "0 2px" },
     };
   }
 }
