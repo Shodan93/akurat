@@ -852,8 +852,8 @@ class Component extends DCLogic {
         position: "relative", display: "flex", flexDirection: "column", minWidth: 0, overflow: "hidden", cursor: "pointer",
         borderRadius: 12, backgroundColor: paperA(0.86), border: "1px solid " + accentLine, /* gold hairline (a real border, so the preview image can't cover it) */
       },
-      projPreviewStyle: { position: "relative", aspectRatio: "16 / 10", overflow: "hidden", backgroundColor: sunken, borderBottom: "1px solid " + accentLine },
-      duoPreviewStyle: { position: "relative", aspectRatio: "16 / 9", overflow: "hidden", backgroundColor: sunken, borderBottom: "1px solid " + accentLine },
+      projPreviewStyle: { position: "relative", aspectRatio: "16 / 10", overflow: "hidden", backgroundColor: sunken }, /* no divider line: blue image area flows straight into the text, only the outer card border stays */
+      duoPreviewStyle: { position: "relative", aspectRatio: "16 / 9", overflow: "hidden", backgroundColor: sunken }, /* no divider line: blue image area flows straight into the text, only the outer card border stays */
       projBodyStyle: { display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 12, flex: 1, padding: m ? "20px 20px 24px 20px" : "24px 26px 28px 26px" },
       projTitleStyle: { fontFamily: archivoNarrow, fontWeight: 700, fontSize: "var(--fs-case-sub)", letterSpacing: ls, lineHeight: 1.2, color: strong, margin: 0 },
       projOneLinerStyle: { fontFamily: archivo, fontWeight: 600, fontSize: "var(--fs-body)", lineHeight: 1.45, color: bodyText, margin: 0 },
